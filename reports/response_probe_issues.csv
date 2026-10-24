@@ -1,0 +1,16 @@
+participant_id,trial_number,condition,probe_onset,next_probe_onset,response_count,response_labels,response_conditions,response_onsets_s,response_delays_s,status,issues
+sub-001,19,6M,1010.7,1031.3,1,correct,6M,1017.156,6.456,REVIEW,response_over_5_seconds_after_probe
+sub-001,21,7R,1051.4,1071.5,1,error,7R,1056.684,5.284,REVIEW,response_over_5_seconds_after_probe
+sub-001,26,7R,1152.6,1172.7,1,correct,7R,1159.556,6.956,REVIEW,response_over_5_seconds_after_probe
+sub-001,43,6R,1498.8,1519.2,2,error; correct,6R; 6R,1502.940; 1505.208,4.140; 6.408,REVIEW,multiple_responses; response_over_5_seconds_after_probe
+sub-001,50,6R,1641.0,1661.5,1,correct,6R,1646.018,5.018,REVIEW,response_over_5_seconds_after_probe
+sub-001,92,5R,2495.3,2515.8,2,error; correct,5R; 5R,2497.134; 2499.594,1.834; 4.294,REVIEW,multiple_responses
+sub-001,104,7M,2739.5,2759.7,2,error; correct,7M; 7M,2740.790; 2745.320,1.290; 5.820,REVIEW,multiple_responses; response_over_5_seconds_after_probe
+sub-001,112,7M,2902.2,2922.5,2,error; correct,7M; 7M,2905.886; 2906.636,3.686; 4.436,REVIEW,multiple_responses
+sub-002,18,6M,900.15,920.56,1,error,6M,905.764,5.614,REVIEW,response_over_5_seconds_after_probe
+sub-002,25,7M,1042.7,1063.2,1,correct,7M,1048.956,6.256,REVIEW,response_over_5_seconds_after_probe
+sub-002,46,7R,1469.8,1490.4,1,correct,7R,1475.652,5.852,REVIEW,response_over_5_seconds_after_probe
+sub-002,51,7R,1571.6,1592.1,1,correct,7R,1576.640,5.040,REVIEW,response_over_5_seconds_after_probe
+sub-002,56,7R,1673.6,1693.8,1,correct,7R,1679.032,5.432,REVIEW,response_over_5_seconds_after_probe
+sub-002,69,6R,1938.1,1958.6,1,correct,6R,1943.328,5.228,REVIEW,response_over_5_seconds_after_probe
+sub-002,70,6R,1958.6,1979.0,1,error,6R,1965.774,7.174,REVIEW,response_over_5_seconds_after_probe

@@ -49,7 +49,7 @@ for participant in ["sub-001", "sub-002"]:
             previous_probe = previous_probes.iloc[-1]
             previous_probe_time = previous_probe["onset"]
             previous_condition = re.search(
-                r"probe:\s*([56][RM])",
+                r"probe:\s*([567][RM])",
                 previous_probe["trial_type"],
                 re.IGNORECASE
             )
@@ -64,7 +64,7 @@ for participant in ["sub-001", "sub-002"]:
             )
 
         response_condition = re.search(
-            r"Response:\s*([56][RM]):\s*(correct|error)",
+            r"Response:\s*([567][RM]):\s*(correct|error)",
             response["trial_type"],
             re.IGNORECASE
         )

@@ -1,0 +1,18 @@
+participant_id,trial_number,trial_start_onset,condition,probe_onset,probe_count,response_count,response_onsets_s,response_labels,response_conditions,response_delays_after_probe_s,response_details,status,issues
+sub-001,19,996.76,6M,1010.7,1,1,1017.156,correct,6M,6.456,1017.156s: correct,REVIEW,response_over_5_seconds_after_probe
+sub-001,21,1037.4,7R,1051.4,1,1,1056.684,error,7R,5.284,1056.684s: error,REVIEW,response_over_5_seconds_after_probe
+sub-001,26,1138.7,7R,1152.6,1,0,,,,,,REVIEW,missing_response
+sub-001,27,1158.8,7R,1172.7,1,2,1159.556; 1174.110,correct; correct,7R; 7R,-13.144; 1.410,1159.556s: correct; 1174.110s: correct,REVIEW,multiple_responses; response_before_probe
+sub-001,44,1505.2,6R,1519.2,1,2,1505.208; 1522.666,correct; correct,6R; 6R,-13.992; 3.466,1505.208s: correct; 1522.666s: correct,REVIEW,multiple_responses; response_before_probe
+sub-001,50,1627.0,6R,1641.0,1,1,1646.018,correct,6R,5.018,1646.018s: correct,REVIEW,response_over_5_seconds_after_probe
+sub-001,92,2481.4,5R,2495.3,1,2,2497.134; 2499.594,error; correct,5R; 5R,1.834; 4.294,2497.134s: error; 2499.594s: correct,REVIEW,multiple_responses
+sub-001,104,2725.5,7M,2739.5,1,2,2740.790; 2745.320,error; correct,7M; 7M,1.290; 5.820,2740.790s: error; 2745.320s: correct,REVIEW,multiple_responses; response_over_5_seconds_after_probe
+sub-001,112,2888.3,7M,2902.2,1,2,2905.886; 2906.636,error; correct,7M; 7M,3.686; 4.436,2905.886s: error; 2906.636s: correct,REVIEW,multiple_responses
+sub-002,18,886.18,6M,900.15,1,1,905.764,error,6M,5.614,905.764s: error,REVIEW,response_over_5_seconds_after_probe
+sub-002,25,1028.7,7M,1042.7,1,1,1048.956,correct,7M,6.256,1048.956s: correct,REVIEW,response_over_5_seconds_after_probe
+sub-002,46,1455.8,7R,1469.8,1,1,1475.652,correct,7R,5.852,1475.652s: correct,REVIEW,response_over_5_seconds_after_probe
+sub-002,51,1557.7,7R,1571.6,1,1,1576.640,correct,7R,5.040,1576.640s: correct,REVIEW,response_over_5_seconds_after_probe
+sub-002,56,1659.7,7R,1673.6,1,1,1679.032,correct,7R,5.432,1679.032s: correct,REVIEW,response_over_5_seconds_after_probe
+sub-002,69,1924.1,6R,1938.1,1,1,1943.328,correct,6R,5.228,1943.328s: correct,REVIEW,response_over_5_seconds_after_probe
+sub-002,70,1944.6,6R,1958.6,1,0,,,,,,REVIEW,missing_response
+sub-002,71,1965.0,6R,1979.0,1,2,1965.774; 1982.160,error; correct,6R; 6R,-13.226; 3.160,1965.774s: error; 1982.160s: correct,REVIEW,multiple_responses; response_before_probe
