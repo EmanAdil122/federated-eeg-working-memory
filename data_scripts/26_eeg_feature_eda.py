@@ -63,8 +63,8 @@ def mean_by(group_col, fname, title):
     ax.set_xticks(np.arange(3) + width * (len(groups) - 1) / 2)
     ax.set_xticklabels([b.capitalize() for b in bands])
     ax.set_ylabel("Mean log10 band power (all channels)")
-    ax.set_title(title); ax.legend(title=group_col, fontsize=8)
-    fig.tight_layout(); fig.savefig(FIG_DIR / fname, dpi=200); plt.close(fig)
+    ax.set_title(title); ax.legend(title=group_col, fontsize=8, loc="upper left", bbox_to_anchor=(1.01, 1))
+    fig.tight_layout(); fig.savefig(FIG_DIR / fname, dpi=200, bbox_inches="tight"); plt.close(fig)
 
 if part_col in df.columns:
     mean_by(part_col, "band_power_by_participant.png", "Mean band power by participant (descriptive, n=2)")
