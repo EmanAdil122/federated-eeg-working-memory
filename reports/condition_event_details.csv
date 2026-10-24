@@ -1,0 +1,1205 @@
+participant,onset,trial_type,value
+sub-001,632.16,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,635.97,encoding: 6M,261
+sub-001,639.12,delay period: 6M,361
+sub-001,645.76,probe: 6M,61
+sub-001,647.774,Response: 6M: correct,4611
+sub-001,652.37,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,656.18,encoding: 6M,261
+sub-001,659.34,delay period: 6M,361
+sub-001,666.01,probe: 6M,61
+sub-001,669.89,Response: 6M: error,4610
+sub-001,672.82,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,676.63,encoding: 6M,261
+sub-001,679.77,delay period: 6M,361
+sub-001,686.45,probe: 6M,61
+sub-001,689.812,Response: 6M: correct,4611
+sub-001,692.97,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,696.78,encoding: 6M,261
+sub-001,699.93,delay period: 6M,361
+sub-001,706.58,probe: 6M,61
+sub-001,708.168,Response: 6M: correct,4611
+sub-001,713.42,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,717.21,encoding: 6M,261
+sub-001,720.38,delay period: 6M,361
+sub-001,727.03,probe: 6M,61
+sub-001,730.146,Response: 6M: correct,4611
+sub-001,733.74,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,737.54,encoding: 6M,261
+sub-001,740.72,delay period: 6M,361
+sub-001,747.36,probe: 6M,61
+sub-001,749.208,Response: 6M: error,4610
+sub-001,754.24,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,758.03,encoding: 6M,261
+sub-001,761.18,delay period: 6M,361
+sub-001,767.86,probe: 6M,61
+sub-001,770.056,Response: 6M: error,4610
+sub-001,774.47,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,778.27,encoding: 6M,261
+sub-001,781.45,delay period: 6M,361
+sub-001,788.09,probe: 6M,61
+sub-001,790.072,Response: 6M: correct,4611
+sub-001,794.62,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,798.42,encoding: 6M,261
+sub-001,801.6,delay period: 6M,361
+sub-001,808.24,probe: 6M,61
+sub-001,810.838,Response: 6M: error,4610
+sub-001,815.07,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,818.87,encoding: 6M,261
+sub-001,822.01,delay period: 6M,361
+sub-001,828.67,probe: 6M,61
+sub-001,832.348,Response: 6M: correct,4611
+sub-001,835.32,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,839.14,encoding: 6M,261
+sub-001,842.28,delay period: 6M,361
+sub-001,848.94,probe: 6M,61
+sub-001,850.13,Response: 6M: correct,4611
+sub-001,855.62,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,859.42,encoding: 6M,261
+sub-001,862.56,delay period: 6M,361
+sub-001,869.24,probe: 6M,61
+sub-001,870.932,Response: 6M: correct,4611
+sub-001,876.11,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,879.92,encoding: 6M,261
+sub-001,883.09,delay period: 6M,361
+sub-001,889.74,probe: 6M,61
+sub-001,892.548,Response: 6M: correct,4611
+sub-001,896.3,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,900.1,encoding: 6M,261
+sub-001,903.24,delay period: 6M,361
+sub-001,909.92,probe: 6M,61
+sub-001,911.396,Response: 6M: correct,4611
+sub-001,916.4,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,920.2,encoding: 6M,261
+sub-001,923.36,delay period: 6M,361
+sub-001,930.02,probe: 6M,61
+sub-001,931.91,Response: 6M: correct,4611
+sub-001,936.59,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,940.4,encoding: 6M,261
+sub-001,943.56,delay period: 6M,361
+sub-001,950.23,probe: 6M,61
+sub-001,953.964,Response: 6M: correct,4611
+sub-001,956.78,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,960.58,encoding: 6M,261
+sub-001,963.76,delay period: 6M,361
+sub-001,970.42,probe: 6M,61
+sub-001,972.508,Response: 6M: error,4610
+sub-001,976.86,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,980.67,encoding: 6M,261
+sub-001,983.84,delay period: 6M,361
+sub-001,990.48,probe: 6M,61
+sub-001,992.546,Response: 6M: correct,4611
+sub-001,997.13,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,1000.9,encoding: 6M,261
+sub-001,1004.1,delay period: 6M,361
+sub-001,1010.7,probe: 6M,61
+sub-001,1017.156,Response: 6M: correct,4611
+sub-001,1017.7,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-001,1021.5,encoding: 6M,261
+sub-001,1024.6,delay period: 6M,361
+sub-001,1031.3,probe: 6M,61
+sub-001,1032.584,Response: 6M: correct,4611
+sub-001,1037.8,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1041.6,encoding: 7R,270
+sub-001,1044.7,delay period: 7R,370
+sub-001,1051.4,probe: 7R,70
+sub-001,1056.684,Response: 7R: error,4700
+sub-001,1057.9,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1061.7,encoding: 7R,270
+sub-001,1064.8,delay period: 7R,370
+sub-001,1071.5,probe: 7R,70
+sub-001,1074.552,Response: 7R: correct,4701
+sub-001,1078.1,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1081.9,encoding: 7R,270
+sub-001,1085.0,delay period: 7R,370
+sub-001,1091.7,probe: 7R,70
+sub-001,1093.176,Response: 7R: correct,4701
+sub-001,1098.5,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1102.3,encoding: 7R,270
+sub-001,1105.4,delay period: 7R,370
+sub-001,1112.1,probe: 7R,70
+sub-001,1116.818,Response: 7R: correct,4701
+sub-001,1118.8,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1122.6,encoding: 7R,270
+sub-001,1125.7,delay period: 7R,370
+sub-001,1132.4,probe: 7R,70
+sub-001,1134.798,Response: 7R: correct,4701
+sub-001,1139.0,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1142.8,encoding: 7R,270
+sub-001,1146.0,delay period: 7R,370
+sub-001,1152.6,probe: 7R,70
+sub-001,1159.1,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1159.556,Response: 7R: correct,4701
+sub-001,1162.9,encoding: 7R,270
+sub-001,1166.1,delay period: 7R,370
+sub-001,1172.7,probe: 7R,70
+sub-001,1174.11,Response: 7R: correct,4701
+sub-001,1179.5,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1183.3,encoding: 7R,270
+sub-001,1186.5,delay period: 7R,370
+sub-001,1193.1,probe: 7R,70
+sub-001,1195.214,Response: 7R: correct,4701
+sub-001,1199.6,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1203.4,encoding: 7R,270
+sub-001,1206.6,delay period: 7R,370
+sub-001,1213.2,probe: 7R,70
+sub-001,1215.53,Response: 7R: error,4700
+sub-001,1219.7,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1223.5,encoding: 7R,270
+sub-001,1226.7,delay period: 7R,370
+sub-001,1233.3,probe: 7R,70
+sub-001,1235.254,Response: 7R: correct,4701
+sub-001,1240.2,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1244.0,encoding: 7R,270
+sub-001,1247.1,delay period: 7R,370
+sub-001,1253.8,probe: 7R,70
+sub-001,1256.066,Response: 7R: correct,4701
+sub-001,1260.6,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1264.4,encoding: 7R,270
+sub-001,1267.6,delay period: 7R,370
+sub-001,1274.2,probe: 7R,70
+sub-001,1276.19,Response: 7R: correct,4701
+sub-001,1281.2,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1285.0,encoding: 7R,270
+sub-001,1288.1,delay period: 7R,370
+sub-001,1294.8,probe: 7R,70
+sub-001,1298.994,Response: 7R: correct,4701
+sub-001,1301.5,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1305.3,encoding: 7R,270
+sub-001,1308.4,delay period: 7R,370
+sub-001,1315.1,probe: 7R,70
+sub-001,1318.926,Response: 7R: correct,4701
+sub-001,1321.7,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1325.5,encoding: 7R,270
+sub-001,1328.7,delay period: 7R,370
+sub-001,1335.3,probe: 7R,70
+sub-001,1336.872,Response: 7R: correct,4701
+sub-001,1342.3,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1346.1,encoding: 7R,270
+sub-001,1349.2,delay period: 7R,370
+sub-001,1355.9,probe: 7R,70
+sub-001,1359.906,Response: 7R: correct,4701
+sub-001,1362.8,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1366.6,encoding: 7R,270
+sub-001,1369.7,delay period: 7R,370
+sub-001,1376.4,probe: 7R,70
+sub-001,1381.008,Response: 7R: error,4700
+sub-001,1383.3,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1387.0,encoding: 7R,270
+sub-001,1390.2,delay period: 7R,370
+sub-001,1396.9,probe: 7R,70
+sub-001,1401.164,Response: 7R: correct,4701
+sub-001,1403.8,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1407.6,encoding: 7R,270
+sub-001,1410.8,delay period: 7R,370
+sub-001,1417.4,probe: 7R,70
+sub-001,1420.13,Response: 7R: correct,4701
+sub-001,1423.9,start of the baseline period: Retention of 7 letters (7R),170
+sub-001,1427.7,encoding: 7R,270
+sub-001,1430.9,delay period: 7R,370
+sub-001,1437.5,probe: 7R,70
+sub-001,1441.588,Response: 7R: correct,4701
+sub-001,1444.4,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1448.2,encoding: 6R,260
+sub-001,1451.4,delay period: 6R,360
+sub-001,1458.0,probe: 6R,60
+sub-001,1460.178,Response: 6R: correct,4601
+sub-001,1464.6,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1468.4,encoding: 6R,260
+sub-001,1471.6,delay period: 6R,360
+sub-001,1478.2,probe: 6R,60
+sub-001,1481.188,Response: 6R: correct,4601
+sub-001,1485.1,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1488.9,encoding: 6R,260
+sub-001,1492.1,delay period: 6R,360
+sub-001,1498.8,probe: 6R,60
+sub-001,1502.94,Response: 6R: error,4600
+sub-001,1505.208,Response: 6R: correct,4601
+sub-001,1505.6,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1509.4,encoding: 6R,260
+sub-001,1512.5,delay period: 6R,360
+sub-001,1519.2,probe: 6R,60
+sub-001,1522.666,Response: 6R: correct,4601
+sub-001,1526.0,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1529.8,encoding: 6R,260
+sub-001,1533.0,delay period: 6R,360
+sub-001,1539.6,probe: 6R,60
+sub-001,1541.338,Response: 6R: correct,4601
+sub-001,1546.3,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1550.1,encoding: 6R,260
+sub-001,1553.2,delay period: 6R,360
+sub-001,1559.9,probe: 6R,60
+sub-001,1562.41,Response: 6R: correct,4601
+sub-001,1566.5,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1570.3,encoding: 6R,260
+sub-001,1573.4,delay period: 6R,360
+sub-001,1580.1,probe: 6R,60
+sub-001,1582.78,Response: 6R: correct,4601
+sub-001,1586.7,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1590.5,encoding: 6R,260
+sub-001,1593.7,delay period: 6R,360
+sub-001,1600.4,probe: 6R,60
+sub-001,1602.572,Response: 6R: correct,4601
+sub-001,1607.1,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1610.9,encoding: 6R,260
+sub-001,1614.1,delay period: 6R,360
+sub-001,1620.7,probe: 6R,60
+sub-001,1624.928,Response: 6R: error,4600
+sub-001,1627.4,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1631.2,encoding: 6R,260
+sub-001,1634.4,delay period: 6R,360
+sub-001,1641.0,probe: 6R,60
+sub-001,1646.018,Response: 6R: correct,4601
+sub-001,1647.9,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1651.7,encoding: 6R,260
+sub-001,1654.9,delay period: 6R,360
+sub-001,1661.5,probe: 6R,60
+sub-001,1664.712,Response: 6R: error,4600
+sub-001,1668.3,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1672.2,encoding: 6R,260
+sub-001,1675.3,delay period: 6R,360
+sub-001,1682.0,probe: 6R,60
+sub-001,1683.984,Response: 6R: correct,4601
+sub-001,1688.8,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1692.6,encoding: 6R,260
+sub-001,1695.8,delay period: 6R,360
+sub-001,1702.4,probe: 6R,60
+sub-001,1704.408,Response: 6R: correct,4601
+sub-001,1709.2,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1713.1,encoding: 6R,260
+sub-001,1716.2,delay period: 6R,360
+sub-001,1722.9,probe: 6R,60
+sub-001,1724.05,Response: 6R: correct,4601
+sub-001,1729.7,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1733.5,encoding: 6R,260
+sub-001,1736.6,delay period: 6R,360
+sub-001,1743.3,probe: 6R,60
+sub-001,1746.37,Response: 6R: error,4600
+sub-001,1749.8,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1753.6,encoding: 6R,260
+sub-001,1756.8,delay period: 6R,360
+sub-001,1763.4,probe: 6R,60
+sub-001,1766.286,Response: 6R: correct,4601
+sub-001,1769.9,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1773.7,encoding: 6R,260
+sub-001,1776.9,delay period: 6R,360
+sub-001,1783.5,probe: 6R,60
+sub-001,1785.728,Response: 6R: correct,4601
+sub-001,1790.4,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1794.2,encoding: 6R,260
+sub-001,1797.4,delay period: 6R,360
+sub-001,1804.1,probe: 6R,60
+sub-001,1805.726,Response: 6R: correct,4601
+sub-001,1810.8,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1814.6,encoding: 6R,260
+sub-001,1817.8,delay period: 6R,360
+sub-001,1824.4,probe: 6R,60
+sub-001,1826.514,Response: 6R: correct,4601
+sub-001,1831.3,start of the baseline period: Retention of 6 letters (6R),160
+sub-001,1835.1,encoding: 6R,260
+sub-001,1838.2,delay period: 6R,360
+sub-001,1844.9,probe: 6R,60
+sub-001,1846.382,Response: 6R: correct,4601
+sub-001,1851.5,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,1855.3,encoding: 5M,251
+sub-001,1858.5,delay period: 5M,351
+sub-001,1865.1,probe: 5M,51
+sub-001,1867.162,Response: 5M: correct,4511
+sub-001,1871.6,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,1875.5,encoding: 5M,251
+sub-001,1878.6,delay period: 5M,351
+sub-001,1885.3,probe: 5M,51
+sub-001,1888.792,Response: 5M: correct,4511
+sub-001,1891.9,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,1895.8,encoding: 5M,251
+sub-001,1898.9,delay period: 5M,351
+sub-001,1905.6,probe: 5M,51
+sub-001,1907.222,Response: 5M: correct,4511
+sub-001,1912.4,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,1916.2,encoding: 5M,251
+sub-001,1919.3,delay period: 5M,351
+sub-001,1926.0,probe: 5M,51
+sub-001,1928.21,Response: 5M: correct,4511
+sub-001,1932.9,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,1936.7,encoding: 5M,251
+sub-001,1939.9,delay period: 5M,351
+sub-001,1946.5,probe: 5M,51
+sub-001,1947.994,Response: 5M: correct,4511
+sub-001,1953.1,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,1956.9,encoding: 5M,251
+sub-001,1960.0,delay period: 5M,351
+sub-001,1966.7,probe: 5M,51
+sub-001,1969.756,Response: 5M: correct,4511
+sub-001,1973.3,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,1977.1,encoding: 5M,251
+sub-001,1980.3,delay period: 5M,351
+sub-001,1986.9,probe: 5M,51
+sub-001,1990.888,Response: 5M: correct,4511
+sub-001,1993.4,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,1997.2,encoding: 5M,251
+sub-001,2000.4,delay period: 5M,351
+sub-001,2007.1,probe: 5M,51
+sub-001,2008.556,Response: 5M: correct,4511
+sub-001,2014.0,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,2017.8,encoding: 5M,251
+sub-001,2021.0,delay period: 5M,351
+sub-001,2027.6,probe: 5M,51
+sub-001,2029.996,Response: 5M: correct,4511
+sub-001,2034.5,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,2038.3,encoding: 5M,251
+sub-001,2041.4,delay period: 5M,351
+sub-001,2048.1,probe: 5M,51
+sub-001,2051.052,Response: 5M: error,4510
+sub-001,2054.9,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,2058.8,encoding: 5M,251
+sub-001,2061.9,delay period: 5M,351
+sub-001,2068.6,probe: 5M,51
+sub-001,2071.69,Response: 5M: correct,4511
+sub-001,2075.2,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,2079.0,encoding: 5M,251
+sub-001,2082.1,delay period: 5M,351
+sub-001,2088.8,probe: 5M,51
+sub-001,2090.614,Response: 5M: correct,4511
+sub-001,2095.4,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,2099.2,encoding: 5M,251
+sub-001,2102.4,delay period: 5M,351
+sub-001,2109.0,probe: 5M,51
+sub-001,2111.038,Response: 5M: error,4510
+sub-001,2116.0,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,2119.7,encoding: 5M,251
+sub-001,2122.9,delay period: 5M,351
+sub-001,2129.6,probe: 5M,51
+sub-001,2131.24,Response: 5M: correct,4511
+sub-001,2136.1,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,2139.9,encoding: 5M,251
+sub-001,2143.0,delay period: 5M,351
+sub-001,2149.7,probe: 5M,51
+sub-001,2150.752,Response: 5M: correct,4511
+sub-001,2156.6,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,2160.4,encoding: 5M,251
+sub-001,2163.6,delay period: 5M,351
+sub-001,2170.2,probe: 5M,51
+sub-001,2172.144,Response: 5M: correct,4511
+sub-001,2177.1,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,2180.9,encoding: 5M,251
+sub-001,2184.0,delay period: 5M,351
+sub-001,2190.7,probe: 5M,51
+sub-001,2191.922,Response: 5M: correct,4511
+sub-001,2197.3,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,2201.1,encoding: 5M,251
+sub-001,2204.2,delay period: 5M,351
+sub-001,2210.9,probe: 5M,51
+sub-001,2212.682,Response: 5M: correct,4511
+sub-001,2217.6,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,2221.4,encoding: 5M,251
+sub-001,2224.5,delay period: 5M,351
+sub-001,2231.2,probe: 5M,51
+sub-001,2232.668,Response: 5M: error,4510
+sub-001,2237.7,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-001,2241.5,encoding: 5M,251
+sub-001,2244.7,delay period: 5M,351
+sub-001,2251.3,probe: 5M,51
+sub-001,2252.966,Response: 5M: correct,4511
+sub-001,2258.0,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2261.8,encoding: 5R,250
+sub-001,2265.0,delay period: 5R,350
+sub-001,2271.6,probe: 5R,50
+sub-001,2272.964,Response: 5R: correct,4501
+sub-001,2278.5,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2282.3,encoding: 5R,250
+sub-001,2285.5,delay period: 5R,350
+sub-001,2292.1,probe: 5R,50
+sub-001,2294.23,Response: 5R: correct,4501
+sub-001,2299.1,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2302.9,encoding: 5R,250
+sub-001,2306.1,delay period: 5R,350
+sub-001,2312.7,probe: 5R,50
+sub-001,2314.424,Response: 5R: correct,4501
+sub-001,2319.3,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2323.1,encoding: 5R,250
+sub-001,2326.3,delay period: 5R,350
+sub-001,2332.9,probe: 5R,50
+sub-001,2334.67,Response: 5R: correct,4501
+sub-001,2339.6,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2343.4,encoding: 5R,250
+sub-001,2346.6,delay period: 5R,350
+sub-001,2353.2,probe: 5R,50
+sub-001,2355.44,Response: 5R: correct,4501
+sub-001,2360.2,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2364.0,encoding: 5R,250
+sub-001,2367.1,delay period: 5R,350
+sub-001,2373.8,probe: 5R,50
+sub-001,2375.424,Response: 5R: correct,4501
+sub-001,2380.3,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2384.1,encoding: 5R,250
+sub-001,2387.3,delay period: 5R,350
+sub-001,2393.9,probe: 5R,50
+sub-001,2396.682,Response: 5R: correct,4501
+sub-001,2400.5,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2404.3,encoding: 5R,250
+sub-001,2407.4,delay period: 5R,350
+sub-001,2414.1,probe: 5R,50
+sub-001,2416.1,Response: 5R: correct,4501
+sub-001,2420.6,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2424.4,encoding: 5R,250
+sub-001,2427.6,delay period: 5R,350
+sub-001,2434.2,probe: 5R,50
+sub-001,2436.552,Response: 5R: correct,4501
+sub-001,2440.9,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2444.7,encoding: 5R,250
+sub-001,2447.8,delay period: 5R,350
+sub-001,2454.5,probe: 5R,50
+sub-001,2455.792,Response: 5R: correct,4501
+sub-001,2461.1,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2465.0,encoding: 5R,250
+sub-001,2468.1,delay period: 5R,350
+sub-001,2474.8,probe: 5R,50
+sub-001,2476.192,Response: 5R: correct,4501
+sub-001,2481.7,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2485.5,encoding: 5R,250
+sub-001,2488.7,delay period: 5R,350
+sub-001,2495.3,probe: 5R,50
+sub-001,2497.134,Response: 5R: error,4500
+sub-001,2499.594,Response: 5R: correct,4501
+sub-001,2502.2,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2506.0,encoding: 5R,250
+sub-001,2509.2,delay period: 5R,350
+sub-001,2515.8,probe: 5R,50
+sub-001,2516.954,Response: 5R: correct,4501
+sub-001,2522.6,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2526.4,encoding: 5R,250
+sub-001,2529.5,delay period: 5R,350
+sub-001,2536.2,probe: 5R,50
+sub-001,2538.274,Response: 5R: correct,4501
+sub-001,2542.7,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2546.5,encoding: 5R,250
+sub-001,2549.6,delay period: 5R,350
+sub-001,2556.3,probe: 5R,50
+sub-001,2557.618,Response: 5R: correct,4501
+sub-001,2563.2,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2567.0,encoding: 5R,250
+sub-001,2570.2,delay period: 5R,350
+sub-001,2576.9,probe: 5R,50
+sub-001,2578.202,Response: 5R: error,4500
+sub-001,2583.6,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2587.4,encoding: 5R,250
+sub-001,2590.5,delay period: 5R,350
+sub-001,2597.2,probe: 5R,50
+sub-001,2600.614,Response: 5R: correct,4501
+sub-001,2604.0,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2607.8,encoding: 5R,250
+sub-001,2610.9,delay period: 5R,350
+sub-001,2617.6,probe: 5R,50
+sub-001,2619.808,Response: 5R: correct,4501
+sub-001,2624.4,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2628.2,encoding: 5R,250
+sub-001,2631.4,delay period: 5R,350
+sub-001,2638.0,probe: 5R,50
+sub-001,2640.066,Response: 5R: correct,4501
+sub-001,2644.7,start of the baseline period: Retention of 5 letters (5R),150
+sub-001,2648.5,encoding: 5R,250
+sub-001,2651.7,delay period: 5R,350
+sub-001,2658.3,probe: 5R,50
+sub-001,2659.966,Response: 5R: correct,4501
+sub-001,2665.1,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2668.8,encoding: 7M,271
+sub-001,2672.0,delay period: 7M,371
+sub-001,2678.7,probe: 7M,71
+sub-001,2681.0,Response: 7M: correct,4711
+sub-001,2685.3,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2689.1,encoding: 7M,271
+sub-001,2692.3,delay period: 7M,371
+sub-001,2698.9,probe: 7M,71
+sub-001,2700.912,Response: 7M: error,4710
+sub-001,2705.4,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2709.2,encoding: 7M,271
+sub-001,2712.4,delay period: 7M,371
+sub-001,2719.0,probe: 7M,71
+sub-001,2720.764,Response: 7M: correct,4711
+sub-001,2725.8,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2729.6,encoding: 7M,271
+sub-001,2732.8,delay period: 7M,371
+sub-001,2739.5,probe: 7M,71
+sub-001,2740.79,Response: 7M: error,4710
+sub-001,2745.32,Response: 7M: correct,4711
+sub-001,2746.1,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2749.9,encoding: 7M,271
+sub-001,2753.0,delay period: 7M,371
+sub-001,2759.7,probe: 7M,71
+sub-001,2761.194,Response: 7M: correct,4711
+sub-001,2766.3,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2770.1,encoding: 7M,271
+sub-001,2773.3,delay period: 7M,371
+sub-001,2779.9,probe: 7M,71
+sub-001,2783.056,Response: 7M: correct,4711
+sub-001,2786.7,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2790.5,encoding: 7M,271
+sub-001,2793.7,delay period: 7M,371
+sub-001,2800.3,probe: 7M,71
+sub-001,2801.856,Response: 7M: correct,4711
+sub-001,2806.9,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2810.7,encoding: 7M,271
+sub-001,2813.9,delay period: 7M,371
+sub-001,2820.6,probe: 7M,71
+sub-001,2821.78,Response: 7M: error,4710
+sub-001,2827.4,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2831.2,encoding: 7M,271
+sub-001,2834.3,delay period: 7M,371
+sub-001,2841.0,probe: 7M,71
+sub-001,2842.536,Response: 7M: error,4710
+sub-001,2847.8,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2851.6,encoding: 7M,271
+sub-001,2854.7,delay period: 7M,371
+sub-001,2861.4,probe: 7M,71
+sub-001,2862.98,Response: 7M: correct,4711
+sub-001,2868.2,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2872.0,encoding: 7M,271
+sub-001,2875.1,delay period: 7M,371
+sub-001,2881.8,probe: 7M,71
+sub-001,2882.532,Response: 7M: correct,4711
+sub-001,2888.6,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2892.4,encoding: 7M,271
+sub-001,2895.6,delay period: 7M,371
+sub-001,2902.2,probe: 7M,71
+sub-001,2905.886,Response: 7M: error,4710
+sub-001,2906.636,Response: 7M: correct,4711
+sub-001,2908.9,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2912.7,encoding: 7M,271
+sub-001,2915.8,delay period: 7M,371
+sub-001,2922.5,probe: 7M,71
+sub-001,2924.17,Response: 7M: error,4710
+sub-001,2929.4,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2933.2,encoding: 7M,271
+sub-001,2936.4,delay period: 7M,371
+sub-001,2943.0,probe: 7M,71
+sub-001,2947.424,Response: 7M: correct,4711
+sub-001,2949.8,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2953.6,encoding: 7M,271
+sub-001,2956.7,delay period: 7M,371
+sub-001,2963.4,probe: 7M,71
+sub-001,2965.784,Response: 7M: correct,4711
+sub-001,2970.0,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2973.8,encoding: 7M,271
+sub-001,2977.0,delay period: 7M,371
+sub-001,2983.6,probe: 7M,71
+sub-001,2986.62,Response: 7M: correct,4711
+sub-001,2990.6,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,2994.4,encoding: 7M,271
+sub-001,2997.5,delay period: 7M,371
+sub-001,3004.2,probe: 7M,71
+sub-001,3005.724,Response: 7M: correct,4711
+sub-001,3010.8,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,3014.7,encoding: 7M,271
+sub-001,3017.8,delay period: 7M,371
+sub-001,3024.5,probe: 7M,71
+sub-001,3026.058,Response: 7M: error,4710
+sub-001,3031.0,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,3034.8,encoding: 7M,271
+sub-001,3038.0,delay period: 7M,371
+sub-001,3044.6,probe: 7M,71
+sub-001,3046.5,Response: 7M: error,4710
+sub-001,3051.5,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-001,3055.3,encoding: 7M,271
+sub-001,3058.4,delay period: 7M,371
+sub-001,3065.1,probe: 7M,71
+sub-001,3066.522,Response: 7M: correct,4711
+sub-002,541.39,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,545.2,encoding: 6M,261
+sub-002,548.37,delay period: 6M,361
+sub-002,555.01,probe: 6M,61
+sub-002,556.452,Response: 6M: error,4610
+sub-002,561.49,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,565.3,encoding: 6M,261
+sub-002,568.47,delay period: 6M,361
+sub-002,575.11,probe: 6M,61
+sub-002,577.05,Response: 6M: error,4610
+sub-002,581.72,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,585.53,encoding: 6M,261
+sub-002,588.7,delay period: 6M,361
+sub-002,595.34,probe: 6M,61
+sub-002,598.12,Response: 6M: error,4610
+sub-002,602.19,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,605.99,encoding: 6M,261
+sub-002,609.17,delay period: 6M,361
+sub-002,615.81,probe: 6M,61
+sub-002,618.618,Response: 6M: correct,4611
+sub-002,622.59,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,626.39,encoding: 6M,261
+sub-002,629.57,delay period: 6M,361
+sub-002,636.21,probe: 6M,61
+sub-002,640.424,Response: 6M: error,4610
+sub-002,643.19,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,646.99,encoding: 6M,261
+sub-002,650.13,delay period: 6M,361
+sub-002,656.79,probe: 6M,61
+sub-002,658.75,Response: 6M: correct,4611
+sub-002,663.6,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,667.41,encoding: 6M,261
+sub-002,670.55,delay period: 6M,361
+sub-002,677.23,probe: 6M,61
+sub-002,678.946,Response: 6M: correct,4611
+sub-002,684.14,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,687.94,encoding: 6M,261
+sub-002,691.11,delay period: 6M,361
+sub-002,697.76,probe: 6M,61
+sub-002,700.55,Response: 6M: correct,4611
+sub-002,704.4,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,708.19,encoding: 6M,261
+sub-002,711.36,delay period: 6M,361
+sub-002,718.01,probe: 6M,61
+sub-002,720.094,Response: 6M: correct,4611
+sub-002,724.78,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,728.59,encoding: 6M,261
+sub-002,731.75,delay period: 6M,361
+sub-002,738.39,probe: 6M,61
+sub-002,740.372,Response: 6M: correct,4611
+sub-002,744.87,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,748.67,encoding: 6M,261
+sub-002,751.84,delay period: 6M,361
+sub-002,758.49,probe: 6M,61
+sub-002,760.896,Response: 6M: correct,4611
+sub-002,765.13,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,768.95,encoding: 6M,261
+sub-002,772.09,delay period: 6M,361
+sub-002,778.75,probe: 6M,61
+sub-002,780.96,Response: 6M: correct,4611
+sub-002,785.23,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,789.05,encoding: 6M,261
+sub-002,792.19,delay period: 6M,361
+sub-002,798.85,probe: 6M,61
+sub-002,801.476,Response: 6M: error,4610
+sub-002,805.4,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,809.2,encoding: 6M,261
+sub-002,812.34,delay period: 6M,361
+sub-002,819.02,probe: 6M,61
+sub-002,820.228,Response: 6M: correct,4611
+sub-002,825.8,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,829.6,encoding: 6M,261
+sub-002,832.74,delay period: 6M,361
+sub-002,839.42,probe: 6M,61
+sub-002,843.378,Response: 6M: correct,4611
+sub-002,846.2,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,850.0,encoding: 6M,261
+sub-002,853.14,delay period: 6M,361
+sub-002,859.82,probe: 6M,61
+sub-002,861.732,Response: 6M: error,4610
+sub-002,866.43,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,870.25,encoding: 6M,261
+sub-002,873.39,delay period: 6M,361
+sub-002,880.07,probe: 6M,61
+sub-002,884.134,Response: 6M: correct,4611
+sub-002,886.54,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,890.35,encoding: 6M,261
+sub-002,893.49,delay period: 6M,361
+sub-002,900.15,probe: 6M,61
+sub-002,905.764,Response: 6M: error,4610
+sub-002,906.93,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,910.75,encoding: 6M,261
+sub-002,913.92,delay period: 6M,361
+sub-002,920.56,probe: 6M,61
+sub-002,922.572,Response: 6M: correct,4611
+sub-002,927.32,start of the baseline period: Manipulation with 6 letters (6M),161
+sub-002,931.13,encoding: 6M,261
+sub-002,934.27,delay period: 6M,361
+sub-002,940.93,probe: 6M,61
+sub-002,943.568,Response: 6M: correct,4611
+sub-002,947.79,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,951.6,encoding: 7M,271
+sub-002,954.73,delay period: 7M,371
+sub-002,961.4,probe: 7M,71
+sub-002,965.246,Response: 7M: error,4710
+sub-002,968.24,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,972.01,encoding: 7M,271
+sub-002,975.18,delay period: 7M,371
+sub-002,981.83,probe: 7M,71
+sub-002,984.378,Response: 7M: correct,4711
+sub-002,988.54,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,992.34,encoding: 7M,271
+sub-002,995.52,delay period: 7M,371
+sub-002,1002.2,probe: 7M,71
+sub-002,1005.638,Response: 7M: correct,4711
+sub-002,1008.7,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1012.5,encoding: 7M,271
+sub-002,1015.7,delay period: 7M,371
+sub-002,1022.3,probe: 7M,71
+sub-002,1023.504,Response: 7M: correct,4711
+sub-002,1029.1,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1032.9,encoding: 7M,271
+sub-002,1036.0,delay period: 7M,371
+sub-002,1042.7,probe: 7M,71
+sub-002,1048.956,Response: 7M: correct,4711
+sub-002,1049.6,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1053.4,encoding: 7M,271
+sub-002,1056.5,delay period: 7M,371
+sub-002,1063.2,probe: 7M,71
+sub-002,1064.91,Response: 7M: correct,4711
+sub-002,1070.1,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1073.9,encoding: 7M,271
+sub-002,1077.1,delay period: 7M,371
+sub-002,1083.8,probe: 7M,71
+sub-002,1087.916,Response: 7M: correct,4711
+sub-002,1090.7,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1094.5,encoding: 7M,271
+sub-002,1097.7,delay period: 7M,371
+sub-002,1104.3,probe: 7M,71
+sub-002,1106.7,Response: 7M: correct,4711
+sub-002,1111.0,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1114.8,encoding: 7M,271
+sub-002,1118.0,delay period: 7M,371
+sub-002,1124.6,probe: 7M,71
+sub-002,1126.872,Response: 7M: correct,4711
+sub-002,1131.2,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1135.0,encoding: 7M,271
+sub-002,1138.1,delay period: 7M,371
+sub-002,1144.8,probe: 7M,71
+sub-002,1146.454,Response: 7M: correct,4711
+sub-002,1151.6,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1155.4,encoding: 7M,271
+sub-002,1158.5,delay period: 7M,371
+sub-002,1165.2,probe: 7M,71
+sub-002,1166.918,Response: 7M: correct,4711
+sub-002,1172.0,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1175.8,encoding: 7M,271
+sub-002,1179.0,delay period: 7M,371
+sub-002,1185.6,probe: 7M,71
+sub-002,1187.536,Response: 7M: correct,4711
+sub-002,1192.4,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1196.3,encoding: 7M,271
+sub-002,1199.4,delay period: 7M,371
+sub-002,1206.1,probe: 7M,71
+sub-002,1210.096,Response: 7M: correct,4711
+sub-002,1212.7,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1216.5,encoding: 7M,271
+sub-002,1219.7,delay period: 7M,371
+sub-002,1226.3,probe: 7M,71
+sub-002,1230.858,Response: 7M: correct,4711
+sub-002,1232.9,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1236.7,encoding: 7M,271
+sub-002,1239.8,delay period: 7M,371
+sub-002,1246.5,probe: 7M,71
+sub-002,1248.82,Response: 7M: correct,4711
+sub-002,1253.1,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1257.0,encoding: 7M,271
+sub-002,1260.1,delay period: 7M,371
+sub-002,1266.8,probe: 7M,71
+sub-002,1269.538,Response: 7M: correct,4711
+sub-002,1273.2,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1277.1,encoding: 7M,271
+sub-002,1280.2,delay period: 7M,371
+sub-002,1286.9,probe: 7M,71
+sub-002,1288.718,Response: 7M: error,4710
+sub-002,1293.7,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1297.5,encoding: 7M,271
+sub-002,1300.7,delay period: 7M,371
+sub-002,1307.3,probe: 7M,71
+sub-002,1308.486,Response: 7M: error,4710
+sub-002,1314.0,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1317.8,encoding: 7M,271
+sub-002,1320.9,delay period: 7M,371
+sub-002,1327.6,probe: 7M,71
+sub-002,1329.446,Response: 7M: correct,4711
+sub-002,1334.1,start of the baseline period: Manipulation with 7 letters (7M),171
+sub-002,1337.9,encoding: 7M,271
+sub-002,1341.0,delay period: 7M,371
+sub-002,1347.7,probe: 7M,71
+sub-002,1349.17,Response: 7M: correct,4711
+sub-002,1354.5,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1358.3,encoding: 7R,270
+sub-002,1361.5,delay period: 7R,370
+sub-002,1368.1,probe: 7R,70
+sub-002,1371.976,Response: 7R: error,4700
+sub-002,1374.8,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1378.6,encoding: 7R,270
+sub-002,1381.7,delay period: 7R,370
+sub-002,1388.4,probe: 7R,70
+sub-002,1389.978,Response: 7R: correct,4701
+sub-002,1395.3,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1399.1,encoding: 7R,270
+sub-002,1402.3,delay period: 7R,370
+sub-002,1408.9,probe: 7R,70
+sub-002,1412.088,Response: 7R: correct,4701
+sub-002,1415.4,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1419.2,encoding: 7R,270
+sub-002,1422.4,delay period: 7R,370
+sub-002,1429.1,probe: 7R,70
+sub-002,1431.198,Response: 7R: correct,4701
+sub-002,1435.8,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1439.6,encoding: 7R,270
+sub-002,1442.7,delay period: 7R,370
+sub-002,1449.4,probe: 7R,70
+sub-002,1454.314,Response: 7R: correct,4701
+sub-002,1456.2,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1460.0,encoding: 7R,270
+sub-002,1463.1,delay period: 7R,370
+sub-002,1469.8,probe: 7R,70
+sub-002,1475.652,Response: 7R: correct,4701
+sub-002,1476.7,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1480.5,encoding: 7R,270
+sub-002,1483.7,delay period: 7R,370
+sub-002,1490.4,probe: 7R,70
+sub-002,1493.988,Response: 7R: correct,4701
+sub-002,1497.0,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1500.8,encoding: 7R,270
+sub-002,1504.0,delay period: 7R,370
+sub-002,1510.6,probe: 7R,70
+sub-002,1514.77,Response: 7R: correct,4701
+sub-002,1517.5,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1521.3,encoding: 7R,270
+sub-002,1524.5,delay period: 7R,370
+sub-002,1531.1,probe: 7R,70
+sub-002,1535.162,Response: 7R: correct,4701
+sub-002,1537.6,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1541.4,encoding: 7R,270
+sub-002,1544.6,delay period: 7R,370
+sub-002,1551.3,probe: 7R,70
+sub-002,1554.256,Response: 7R: correct,4701
+sub-002,1558.0,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1561.8,encoding: 7R,270
+sub-002,1565.0,delay period: 7R,370
+sub-002,1571.6,probe: 7R,70
+sub-002,1576.64,Response: 7R: correct,4701
+sub-002,1578.5,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1582.3,encoding: 7R,270
+sub-002,1585.5,delay period: 7R,370
+sub-002,1592.1,probe: 7R,70
+sub-002,1595.616,Response: 7R: error,4700
+sub-002,1598.7,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1602.5,encoding: 7R,270
+sub-002,1605.7,delay period: 7R,370
+sub-002,1612.3,probe: 7R,70
+sub-002,1614.208,Response: 7R: correct,4701
+sub-002,1619.0,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1622.8,encoding: 7R,270
+sub-002,1625.9,delay period: 7R,370
+sub-002,1632.6,probe: 7R,70
+sub-002,1635.692,Response: 7R: correct,4701
+sub-002,1639.5,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1643.3,encoding: 7R,270
+sub-002,1646.5,delay period: 7R,370
+sub-002,1653.1,probe: 7R,70
+sub-002,1654.906,Response: 7R: correct,4701
+sub-002,1660.0,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1663.8,encoding: 7R,270
+sub-002,1667.0,delay period: 7R,370
+sub-002,1673.6,probe: 7R,70
+sub-002,1679.032,Response: 7R: correct,4701
+sub-002,1680.2,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1684.0,encoding: 7R,270
+sub-002,1687.2,delay period: 7R,370
+sub-002,1693.8,probe: 7R,70
+sub-002,1697.38,Response: 7R: correct,4701
+sub-002,1700.4,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1704.2,encoding: 7R,270
+sub-002,1707.4,delay period: 7R,370
+sub-002,1714.1,probe: 7R,70
+sub-002,1715.116,Response: 7R: correct,4701
+sub-002,1720.7,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1724.5,encoding: 7R,270
+sub-002,1727.6,delay period: 7R,370
+sub-002,1734.3,probe: 7R,70
+sub-002,1739.076,Response: 7R: correct,4701
+sub-002,1741.0,start of the baseline period: Retention of 7 letters (7R),170
+sub-002,1744.8,encoding: 7R,270
+sub-002,1748.0,delay period: 7R,370
+sub-002,1754.7,probe: 7R,70
+sub-002,1758.196,Response: 7R: error,4700
+sub-002,1761.5,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,1765.3,encoding: 6R,260
+sub-002,1768.4,delay period: 6R,360
+sub-002,1775.1,probe: 6R,60
+sub-002,1777.414,Response: 6R: correct,4601
+sub-002,1781.8,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,1785.6,encoding: 6R,260
+sub-002,1788.8,delay period: 6R,360
+sub-002,1795.5,probe: 6R,60
+sub-002,1798.206,Response: 6R: correct,4601
+sub-002,1802.4,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,1806.2,encoding: 6R,260
+sub-002,1809.3,delay period: 6R,360
+sub-002,1816.0,probe: 6R,60
+sub-002,1819.066,Response: 6R: correct,4601
+sub-002,1822.6,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,1826.4,encoding: 6R,260
+sub-002,1829.6,delay period: 6R,360
+sub-002,1836.2,probe: 6R,60
+sub-002,1839.332,Response: 6R: correct,4601
+sub-002,1843.1,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,1846.9,encoding: 6R,260
+sub-002,1850.1,delay period: 6R,360
+sub-002,1856.7,probe: 6R,60
+sub-002,1858.132,Response: 6R: error,4600
+sub-002,1863.4,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,1867.2,encoding: 6R,260
+sub-002,1870.4,delay period: 6R,360
+sub-002,1877.0,probe: 6R,60
+sub-002,1879.404,Response: 6R: correct,4601
+sub-002,1883.6,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,1887.4,encoding: 6R,260
+sub-002,1890.6,delay period: 6R,360
+sub-002,1897.2,probe: 6R,60
+sub-002,1898.544,Response: 6R: correct,4601
+sub-002,1904.2,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,1908.0,encoding: 6R,260
+sub-002,1911.1,delay period: 6R,360
+sub-002,1917.8,probe: 6R,60
+sub-002,1919.94,Response: 6R: correct,4601
+sub-002,1924.4,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,1928.2,encoding: 6R,260
+sub-002,1931.4,delay period: 6R,360
+sub-002,1938.1,probe: 6R,60
+sub-002,1943.328,Response: 6R: correct,4601
+sub-002,1945.0,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,1948.8,encoding: 6R,260
+sub-002,1951.9,delay period: 6R,360
+sub-002,1958.6,probe: 6R,60
+sub-002,1965.4,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,1965.774,Response: 6R: error,4600
+sub-002,1969.2,encoding: 6R,260
+sub-002,1972.3,delay period: 6R,360
+sub-002,1979.0,probe: 6R,60
+sub-002,1982.16,Response: 6R: correct,4601
+sub-002,1985.8,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,1989.6,encoding: 6R,260
+sub-002,1992.7,delay period: 6R,360
+sub-002,1999.4,probe: 6R,60
+sub-002,2002.6,Response: 6R: correct,4601
+sub-002,2006.3,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,2010.2,encoding: 6R,260
+sub-002,2013.3,delay period: 6R,360
+sub-002,2020.0,probe: 6R,60
+sub-002,2021.354,Response: 6R: correct,4601
+sub-002,2026.8,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,2030.6,encoding: 6R,260
+sub-002,2033.7,delay period: 6R,360
+sub-002,2040.4,probe: 6R,60
+sub-002,2042.408,Response: 6R: correct,4601
+sub-002,2047.0,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,2050.8,encoding: 6R,260
+sub-002,2054.0,delay period: 6R,360
+sub-002,2060.6,probe: 6R,60
+sub-002,2062.018,Response: 6R: correct,4601
+sub-002,2067.3,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,2071.1,encoding: 6R,260
+sub-002,2074.3,delay period: 6R,360
+sub-002,2080.9,probe: 6R,60
+sub-002,2081.976,Response: 6R: correct,4601
+sub-002,2087.9,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,2091.7,encoding: 6R,260
+sub-002,2094.9,delay period: 6R,360
+sub-002,2101.5,probe: 6R,60
+sub-002,2105.41,Response: 6R: correct,4601
+sub-002,2108.4,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,2112.2,encoding: 6R,260
+sub-002,2115.4,delay period: 6R,360
+sub-002,2122.0,probe: 6R,60
+sub-002,2124.612,Response: 6R: correct,4601
+sub-002,2128.7,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,2132.5,encoding: 6R,260
+sub-002,2135.6,delay period: 6R,360
+sub-002,2142.3,probe: 6R,60
+sub-002,2144.06,Response: 6R: correct,4601
+sub-002,2148.9,start of the baseline period: Retention of 6 letters (6R),160
+sub-002,2152.7,encoding: 6R,260
+sub-002,2155.9,delay period: 6R,360
+sub-002,2162.6,probe: 6R,60
+sub-002,2164.672,Response: 6R: correct,4601
+sub-002,2169.3,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2173.1,encoding: 5M,251
+sub-002,2176.2,delay period: 5M,351
+sub-002,2182.9,probe: 5M,51
+sub-002,2185.344,Response: 5M: correct,4511
+sub-002,2189.7,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2193.5,encoding: 5M,251
+sub-002,2196.6,delay period: 5M,351
+sub-002,2203.3,probe: 5M,51
+sub-002,2204.586,Response: 5M: correct,4511
+sub-002,2209.9,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2213.7,encoding: 5M,251
+sub-002,2216.9,delay period: 5M,351
+sub-002,2223.5,probe: 5M,51
+sub-002,2225.902,Response: 5M: correct,4511
+sub-002,2230.2,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2234.0,encoding: 5M,251
+sub-002,2237.1,delay period: 5M,351
+sub-002,2243.8,probe: 5M,51
+sub-002,2245.234,Response: 5M: correct,4511
+sub-002,2250.3,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2254.1,encoding: 5M,251
+sub-002,2257.3,delay period: 5M,351
+sub-002,2263.9,probe: 5M,51
+sub-002,2266.098,Response: 5M: correct,4511
+sub-002,2270.5,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2274.3,encoding: 5M,251
+sub-002,2277.5,delay period: 5M,351
+sub-002,2284.1,probe: 5M,51
+sub-002,2287.722,Response: 5M: correct,4511
+sub-002,2290.7,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2294.5,encoding: 5M,251
+sub-002,2297.6,delay period: 5M,351
+sub-002,2304.3,probe: 5M,51
+sub-002,2306.202,Response: 5M: correct,4511
+sub-002,2310.8,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2314.6,encoding: 5M,251
+sub-002,2317.8,delay period: 5M,351
+sub-002,2324.5,probe: 5M,51
+sub-002,2327.028,Response: 5M: correct,4511
+sub-002,2331.3,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2335.2,encoding: 5M,251
+sub-002,2338.3,delay period: 5M,351
+sub-002,2344.9,probe: 5M,51
+sub-002,2346.644,Response: 5M: correct,4511
+sub-002,2351.7,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2355.6,encoding: 5M,251
+sub-002,2358.7,delay period: 5M,351
+sub-002,2365.4,probe: 5M,51
+sub-002,2366.644,Response: 5M: correct,4511
+sub-002,2372.3,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2376.1,encoding: 5M,251
+sub-002,2379.2,delay period: 5M,351
+sub-002,2385.9,probe: 5M,51
+sub-002,2387.662,Response: 5M: correct,4511
+sub-002,2392.7,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2396.6,encoding: 5M,251
+sub-002,2399.7,delay period: 5M,351
+sub-002,2406.4,probe: 5M,51
+sub-002,2407.58,Response: 5M: correct,4511
+sub-002,2412.9,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2416.8,encoding: 5M,251
+sub-002,2419.9,delay period: 5M,351
+sub-002,2426.6,probe: 5M,51
+sub-002,2430.25,Response: 5M: correct,4511
+sub-002,2433.4,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2437.2,encoding: 5M,251
+sub-002,2440.3,delay period: 5M,351
+sub-002,2447.0,probe: 5M,51
+sub-002,2450.824,Response: 5M: correct,4511
+sub-002,2453.7,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2457.5,encoding: 5M,251
+sub-002,2460.7,delay period: 5M,351
+sub-002,2467.3,probe: 5M,51
+sub-002,2468.598,Response: 5M: correct,4511
+sub-002,2474.2,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2478.0,encoding: 5M,251
+sub-002,2481.1,delay period: 5M,351
+sub-002,2487.8,probe: 5M,51
+sub-002,2488.782,Response: 5M: correct,4511
+sub-002,2494.3,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2498.1,encoding: 5M,251
+sub-002,2501.3,delay period: 5M,351
+sub-002,2507.9,probe: 5M,51
+sub-002,2509.838,Response: 5M: correct,4511
+sub-002,2514.8,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2518.6,encoding: 5M,251
+sub-002,2521.8,delay period: 5M,351
+sub-002,2528.4,probe: 5M,51
+sub-002,2530.48,Response: 5M: correct,4511
+sub-002,2535.0,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2538.8,encoding: 5M,251
+sub-002,2541.9,delay period: 5M,351
+sub-002,2548.6,probe: 5M,51
+sub-002,2550.54,Response: 5M: correct,4511
+sub-002,2555.3,start of the baseline period: Manipulation with 5 letters (5M),151
+sub-002,2559.1,encoding: 5M,251
+sub-002,2562.3,delay period: 5M,351
+sub-002,2568.9,probe: 5M,51
+sub-002,2570.712,Response: 5M: correct,4511
+sub-002,2575.9,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2579.7,encoding: 5R,250
+sub-002,2582.8,delay period: 5R,350
+sub-002,2589.5,probe: 5R,50
+sub-002,2590.664,Response: 5R: correct,4501
+sub-002,2596.1,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2599.9,encoding: 5R,250
+sub-002,2603.1,delay period: 5R,350
+sub-002,2609.7,probe: 5R,50
+sub-002,2611.114,Response: 5R: correct,4501
+sub-002,2616.2,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2620.1,encoding: 5R,250
+sub-002,2623.2,delay period: 5R,350
+sub-002,2629.9,probe: 5R,50
+sub-002,2630.7,Response: 5R: correct,4501
+sub-002,2636.6,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2640.4,encoding: 5R,250
+sub-002,2643.6,delay period: 5R,350
+sub-002,2650.2,probe: 5R,50
+sub-002,2653.022,Response: 5R: correct,4501
+sub-002,2657.1,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2660.9,encoding: 5R,250
+sub-002,2664.1,delay period: 5R,350
+sub-002,2670.8,probe: 5R,50
+sub-002,2673.148,Response: 5R: correct,4501
+sub-002,2677.4,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2681.2,encoding: 5R,250
+sub-002,2684.3,delay period: 5R,350
+sub-002,2691.0,probe: 5R,50
+sub-002,2692.808,Response: 5R: correct,4501
+sub-002,2697.7,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2701.5,encoding: 5R,250
+sub-002,2704.7,delay period: 5R,350
+sub-002,2711.3,probe: 5R,50
+sub-002,2712.978,Response: 5R: correct,4501
+sub-002,2717.9,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2721.7,encoding: 5R,250
+sub-002,2724.9,delay period: 5R,350
+sub-002,2731.5,probe: 5R,50
+sub-002,2732.314,Response: 5R: correct,4501
+sub-002,2738.1,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2741.9,encoding: 5R,250
+sub-002,2745.0,delay period: 5R,350
+sub-002,2751.7,probe: 5R,50
+sub-002,2753.928,Response: 5R: correct,4501
+sub-002,2758.2,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2762.0,encoding: 5R,250
+sub-002,2765.2,delay period: 5R,350
+sub-002,2771.8,probe: 5R,50
+sub-002,2774.996,Response: 5R: correct,4501
+sub-002,2778.6,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2782.4,encoding: 5R,250
+sub-002,2785.6,delay period: 5R,350
+sub-002,2792.2,probe: 5R,50
+sub-002,2797.162,Response: 5R: correct,4501
+sub-002,2798.7,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2802.5,encoding: 5R,250
+sub-002,2805.7,delay period: 5R,350
+sub-002,2812.3,probe: 5R,50
+sub-002,2814.248,Response: 5R: correct,4501
+sub-002,2818.9,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2822.7,encoding: 5R,250
+sub-002,2825.9,delay period: 5R,350
+sub-002,2832.5,probe: 5R,50
+sub-002,2834.79,Response: 5R: correct,4501
+sub-002,2839.2,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2843.0,encoding: 5R,250
+sub-002,2846.2,delay period: 5R,350
+sub-002,2852.8,probe: 5R,50
+sub-002,2855.038,Response: 5R: correct,4501
+sub-002,2859.6,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2863.4,encoding: 5R,250
+sub-002,2866.5,delay period: 5R,350
+sub-002,2873.2,probe: 5R,50
+sub-002,2874.76,Response: 5R: correct,4501
+sub-002,2879.8,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2883.6,encoding: 5R,250
+sub-002,2886.8,delay period: 5R,350
+sub-002,2893.4,probe: 5R,50
+sub-002,2894.436,Response: 5R: correct,4501
+sub-002,2900.2,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2904.0,encoding: 5R,250
+sub-002,2907.1,delay period: 5R,350
+sub-002,2913.8,probe: 5R,50
+sub-002,2916.328,Response: 5R: correct,4501
+sub-002,2920.6,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2924.4,encoding: 5R,250
+sub-002,2927.6,delay period: 5R,350
+sub-002,2934.2,probe: 5R,50
+sub-002,2936.832,Response: 5R: correct,4501
+sub-002,2940.8,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2944.6,encoding: 5R,250
+sub-002,2947.7,delay period: 5R,350
+sub-002,2954.4,probe: 5R,50
+sub-002,2955.73,Response: 5R: correct,4501
+sub-002,2961.1,start of the baseline period: Retention of 5 letters (5R),150
+sub-002,2964.9,encoding: 5R,250
+sub-002,2968.1,delay period: 5R,350
+sub-002,2974.8,probe: 5R,50
+sub-002,2975.972,Response: 5R: correct,4501

@@ -1,0 +1,77 @@
+participant,trial_type,count
+sub-001,start of the trial,120
+sub-001,presentation of the task instruction,120
+sub-001,start of the baseline period: Manipulation with 6 letters (6M),20
+sub-001,encoding: 6M,20
+sub-001,delay period: 6M,20
+sub-001,probe: 6M,20
+sub-001,start of the baseline period: Retention of 7 letters (7R),20
+sub-001,encoding: 7R,20
+sub-001,delay period: 7R,20
+sub-001,probe: 7R,20
+sub-001,start of the baseline period: Retention of 6 letters (6R),20
+sub-001,encoding: 6R,20
+sub-001,delay period: 6R,20
+sub-001,probe: 6R,20
+sub-001,start of the baseline period: Manipulation with 5 letters (5M),20
+sub-001,encoding: 5M,20
+sub-001,delay period: 5M,20
+sub-001,probe: 5M,20
+sub-001,start of the baseline period: Retention of 5 letters (5R),20
+sub-001,encoding: 5R,20
+sub-001,delay period: 5R,20
+sub-001,probe: 5R,20
+sub-001,start of the baseline period: Manipulation with 7 letters (7M),20
+sub-001,encoding: 7M,20
+sub-001,delay period: 7M,20
+sub-001,probe: 7M,20
+sub-001,Response: 5R: correct,19
+sub-001,Response: 7R: correct,17
+sub-001,Response: 6R: correct,17
+sub-001,Response: 5M: correct,17
+sub-001,Response: 6M: correct,15
+sub-001,Response: 7M: correct,14
+sub-001,Response: 7M: error,8
+sub-001,STATUS,5
+sub-001,Response: 6M: error,5
+sub-001,Response: 6R: error,4
+sub-001,Response: 7R: error,3
+sub-001,Response: 5M: error,3
+sub-001,Response: 5R: error,2
+sub-002,start of the trial,120
+sub-002,presentation of the task instruction,120
+sub-002,start of the baseline period: Manipulation with 6 letters (6M),20
+sub-002,encoding: 6M,20
+sub-002,delay period: 6M,20
+sub-002,probe: 6M,20
+sub-002,start of the baseline period: Manipulation with 7 letters (7M),20
+sub-002,encoding: 7M,20
+sub-002,delay period: 7M,20
+sub-002,probe: 7M,20
+sub-002,start of the baseline period: Retention of 7 letters (7R),20
+sub-002,encoding: 7R,20
+sub-002,delay period: 7R,20
+sub-002,probe: 7R,20
+sub-002,start of the baseline period: Retention of 6 letters (6R),20
+sub-002,encoding: 6R,20
+sub-002,delay period: 6R,20
+sub-002,probe: 6R,20
+sub-002,start of the baseline period: Manipulation with 5 letters (5M),20
+sub-002,encoding: 5M,20
+sub-002,delay period: 5M,20
+sub-002,probe: 5M,20
+sub-002,Response: 5M: correct,20
+sub-002,start of the baseline period: Retention of 5 letters (5R),20
+sub-002,encoding: 5R,20
+sub-002,delay period: 5R,20
+sub-002,probe: 5R,20
+sub-002,Response: 5R: correct,20
+sub-002,Response: 6R: correct,18
+sub-002,Response: 7M: correct,17
+sub-002,Response: 7R: correct,17
+sub-002,Response: 6M: correct,13
+sub-002,Response: 6M: error,7
+sub-002,STATUS,3
+sub-002,Response: 7M: error,3
+sub-002,Response: 7R: error,3
+sub-002,Response: 6R: error,2

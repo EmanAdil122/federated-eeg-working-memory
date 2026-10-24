@@ -1,0 +1,3 @@
+participant,channels,sampling_frequency_Hz,duration_seconds,event_rows,unique_event_types,condition_event_rows,duplicate_event_rows,onsets_outside_recording,channel_names
+sub-001,21,500.0,3077.0,849,39,120,0,0,"Fp1, Fp2, F7, F3, Fz, F4, F8, T3, C3, Cz, C4, T4, T5, P3, Pz, P4, T6, O1, O2, EOGv, EOGh"
+sub-002,21,500.0,3035.0,843,37,120,0,0,"Fp1, Fp2, F7, F3, Fz, F4, F8, T3, C3, Cz, C4, T4, T5, P3, Pz, P4, T6, O1, O2, EOGv, EOGh"

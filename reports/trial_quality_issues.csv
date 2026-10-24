@@ -1,0 +1,9 @@
+participant_id,trial_number,condition,issue,event_labels
+sub-001,26,7R,missing_response,start of the trial | start of the baseline period: Retention of 7 letters (7R) | presentation of the task instruction | encoding: 7R | delay period: 7R | probe: 7R
+sub-001,27,7R,multiple_responses,start of the trial | start of the baseline period: Retention of 7 letters (7R) | Response: 7R: correct | presentation of the task instruction | encoding: 7R | delay period: 7R | probe: 7R | Response: 7R: correct
+sub-001,44,6R,multiple_responses,start of the trial | Response: 6R: correct | start of the baseline period: Retention of 6 letters (6R) | presentation of the task instruction | encoding: 6R | delay period: 6R | probe: 6R | Response: 6R: correct
+sub-001,92,5R,multiple_responses,start of the trial | start of the baseline period: Retention of 5 letters (5R) | presentation of the task instruction | encoding: 5R | delay period: 5R | probe: 5R | Response: 5R: error | Response: 5R: correct
+sub-001,104,7M,multiple_responses,start of the trial | start of the baseline period: Manipulation with 7 letters (7M) | presentation of the task instruction | encoding: 7M | delay period: 7M | probe: 7M | Response: 7M: error | Response: 7M: correct
+sub-001,112,7M,multiple_responses,start of the trial | start of the baseline period: Manipulation with 7 letters (7M) | presentation of the task instruction | encoding: 7M | delay period: 7M | probe: 7M | Response: 7M: error | Response: 7M: correct
+sub-002,70,6R,missing_response,start of the trial | start of the baseline period: Retention of 6 letters (6R) | presentation of the task instruction | encoding: 6R | delay period: 6R | probe: 6R
+sub-002,71,6R,multiple_responses,start of the trial | start of the baseline period: Retention of 6 letters (6R) | Response: 6R: error | presentation of the task instruction | encoding: 6R | delay period: 6R | probe: 6R | Response: 6R: correct
