@@ -1,0 +1,96 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{float}
+\title{Federated EEG-Based Working-Memory Decoding: Phase 1 and Phase 2 Report}
+\author{Project Group}
+\date{\today}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This report describes the project motivation and the current data acquisition and preprocessing work for a study of federated learning for EEG-based working-memory decoding. The current dataset audit covers two participants from OpenNeuro dataset ds003655. The work has established file completeness, basic recording metadata, trial/event structure, and a preliminary signal-quality concern. Final signal preprocessing and model experiments remain pending.
+\end{abstract}
+
+\section{Phase 1: Project Definition}
+\subsection{Problem and motivation}
+Electroencephalography (EEG) provides time-varying measurements of brain activity. Working-memory tasks provide structured conditions that can be used to study whether EEG features contain information about task demands. A federated-learning setting is relevant when data are distributed across participants or sites and raw recordings should remain local.
+
+\subsection{Research direction}
+The project investigates EEG-based working-memory decoding under federated learning, with particular attention to cross-subject differences and non-IID data. Planned comparisons should distinguish centralized and federated baselines and should document whether personalization improves performance. These are planned experiments, not results at this stage.
+
+\subsection{Research questions}
+\begin{enumerate}
+\item How does a federated model compare with a centralized baseline for working-memory condition decoding?
+\item How sensitive are results to participant-level distribution differences?
+\item Does a clearly defined personalization strategy improve cross-subject generalization?
+\end{enumerate}
+
+\subsection{Scope}
+This submission focuses on Phase 2 data acquisition, validation, preprocessing design, and initial exploratory analysis. Model training and claims about predictive performance are deferred.
+
+\section{Phase 2: Data Acquisition}
+\subsection{Dataset source}
+The data are from OpenNeuro dataset \texttt{ds003655}, task \texttt{VerbalWorkingMemory}:
+\url{https://openneuro.org/datasets/ds003655}. The dataset uses a modified Sternberg task with retention and manipulation conditions for set sizes 5, 6, and 7. The condition labels are 5R, 6R, 7R, 5M, 6M, and 7M, with 20 trials per condition.
+
+\subsection{Downloaded subset and evidence}
+Two participants, \texttt{sub-001} and \texttt{sub-002}, were downloaded and audited. The local inventory recorded eight files per participant and approximately 269.05 MB total. The recordings use a 500 Hz sampling rate and 21 channels: 19 EEG and 2 EOG. Raw data are excluded from Git. The inventory CSV and download documentation should be retained in the repository as acquisition evidence.
+
+\subsection{Recording structure}
+Each participant has 120 expected task trials. Event metadata include trial starts, condition-specific baseline, encoding, delay, probe, and response markers. The delay period is approximately 6.7 seconds according to the dataset task description.
+
+\section{Validation and Data-Centric Cleaning}
+\subsection{File and event validation}
+The initial validation loaded EEGLAB recordings and checked event timing. Both participants had 120 trial starts and 20 baseline, encoding, delay, and probe markers per condition. The event tables had no exact duplicate rows and no onsets outside the recording interval. These checks confirm basic structure, not scientific validity.
+
+\subsection{Response mapping uncertainty}
+The probe-based response audit produced 240 trial/probe rows: 225 marked PASS and 15 marked REVIEW. The audit found multiple response markers in some trials and response delays exceeding five seconds in some cases. The five-second threshold is a review heuristic, not a validated exclusion rule. Response markers are retained and uncertain cases are not silently resolved.
+
+\subsection{Missing values, duplicates, and outliers}
+For event metadata, missing stages and ambiguous response mappings are recorded as quality issues rather than automatically imputed. Exact duplicate table rows can be reported and removed from a derived tabular dataset where justified. Continuous EEG is not cleaned by treating all extreme samples as ordinary tabular outliers. Suspicious samples require signal-level review and source-aware decisions.
+
+\section{Signal Quality Findings}
+In \texttt{sub-001}, all 21 channels repeatedly reached approximately $-10239.69\,\mu V$. Within the interval 332.5--333.5 seconds, each channel had many samples near this lower boundary, including consecutive runs of approximately 0.48--0.52 seconds. The same boundary was not observed in \texttt{sub-002} during that interval. This is suspicious for clipping, saturation, or a data-representation issue, but its cause has not been confirmed.
+
+The raw files are preserved. No extreme values have been manually replaced, and the participant has not been excluded solely on this evidence. Final filtering, artifact handling, and feature extraction should wait until the data representation is investigated.
+
+\section{Feature Strategy}
+The intended target is working-memory condition, with six categorical conditions. Candidate features may be extracted from the task delay interval after signal handling is finalized. Any feature table should preserve participant ID, trial ID, condition, timing, and quality flags. Categorical variables should be encoded explicitly; numeric features may be standardized. For valid evaluation, imputation and scaling parameters must be fitted only on the training split. In federated comparisons, the scaling strategy must be specified and applied consistently across baselines.
+
+\section{Initial Exploratory Analysis}
+The current EDA is limited to event and trial audit summaries, not EEG-derived feature correlations. Figures should be regenerated from the audit CSVs using \texttt{data\_scripts/20\_make\_eda.py}.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{../reports/figures/trial_counts_by_condition.png}
+{\includegraphics[width=0.85\linewidth]{../reports/figures/trial_counts_by_condition.png}}
+{\fbox{\parbox{0.8\linewidth}{Run the EDA script to generate trial\_counts\_by\_condition.png, then include the figure here.}}}
+\caption{Audited trial/probe counts by task condition and participant.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\IfFileExists{../reports/figures/response_audit_status.png}
+{\includegraphics[width=0.75\linewidth]{../reports/figures/response_audit_status.png}}
+{\fbox{\parbox{0.8\linewidth}{Run the EDA script to generate response\_audit\_status.png if the audit CSV contains a status field.}}}
+\caption{Response/probe audit status. This reflects structural review status, not behavioral accuracy.}
+\end{figure}
+
+\section{Reproducibility and Repository}
+The repository includes a README, .gitignore, Phase 2 scripts, audit CSVs, signal-quality decision notes, and this LaTeX source. Raw EEG files are not committed. Team members should make meaningful individual commits and retain a clear commit history.
+
+\section{Limitations and Remaining Work}
+\begin{enumerate}
+\item Confirm the \texttt{sub-001} amplitude boundary against source documentation or data representation.
+\item Finalize and document filtering, referencing, and artifact handling.
+\item Extract and validate delay-period features using a reproducible trial definition.
+\item Add EEG-derived EDA, including feature distributions and correlations, after feature extraction.
+\item Expand the participant sample before drawing cross-subject conclusions.
+\item Merge the team's actual Phase 1 proposal details and author/group information into this report.
+\item Compile the PDF and verify figure paths and references.
+\end{enumerate}
+
+\end{document}

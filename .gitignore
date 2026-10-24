@@ -1,21 +1,35 @@
-
-# Raw and processed EEG data
+# Raw and processed participant data
 data/
+*.fdt
+*.set
 *.edf
 *.bdf
-*.fif
-*.set
+*.vhdr
+*.eeg
+*.vmrk
 
 # Python
 __pycache__/
 *.py[cod]
 .venv/
+venv/
+.env
 
-# Jupyter checkpoints
-.ipynb_checkpoints/
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
 
-# Virtual environment
-.venv/
+# LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
 
-# EEG dataset - do not upload to GitHub
-data/
+# Keep reports, scripts, source .tex, and selected figures tracked.
