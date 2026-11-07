@@ -18,6 +18,17 @@
     \fbox{\parbox{0.8\linewidth}{\centering\vspace{1.2cm}\detokenize{#1} not found: run the EDA scripts first.\vspace{1.2cm}}}}%
   \caption{#3}\end{figure}}
 
+% Run LaTeX from paper/. Pilot PNGs belong in figures/pilot_eda/.
+\newcommand{\pilotfig}[3]{%
+  \begin{figure}[H]\centering
+  \IfFileExists{figures/pilot_eda/#1}{%
+    \includegraphics[width=#2\linewidth]{figures/pilot_eda/#1}%
+  }{%
+    \fbox{\parbox{0.8\linewidth}{\centering\vspace{0.8cm}%
+    Missing pilot figure: \texttt{\detokenize{#1}}\vspace{0.8cm}}}%
+  }%
+  \caption{#3}\end{figure}}
+
 \title{Federated Learning for EEG-Based Working-Memory Decoding\\
 \large Phase 1 and Phase 2 Report (Deliverable 1)}
 \author{Eman Adil \and Dua Sarfraz \and Ayza Ahmad\\[3pt] {Artificial Intelligence}}
@@ -31,7 +42,7 @@ This report presents the problem definition and data foundations of a pilot stud
 for decoding working-memory load from EEG. We use OpenNeuro dataset \texttt{ds003655} (verbal working-memory
 task); two participants have been acquired so far. We state the research problem and justify the use of machine
 learning (Phase 1), then document data acquisition, validation, a 240-trial table, signal-quality investigation,
-first-pass spectral features (theta, alpha, beta band power for 19 EEG channels), the cleaning and scaling
+spectral features from ICA-corrected EEG (theta, alpha, beta band power for 19 EEG channels), the cleaning and scaling
 strategy, and exploratory data analysis (Phase 2). Because only two participants are available, this is a pilot
 and no claims are made about generalization. Several signal-quality and label-validity questions remain open and
 are reported explicitly rather than hidden.
@@ -143,16 +154,16 @@ supervised model will be trained before the labels are validated.
 
 \subsection{Channel-Type Correction}
 MNE initially labelled \texttt{EOGv} and \texttt{EOGh} as EEG. They are now set to type \texttt{eog} before channel selection,
-so features use only the 19 EEG channels (\texttt{12\_inspect\_channel\_types.py}, \texttt{18\_extract\_features.py}).
+so features use only the 19 EEG channels (\texttt{12\_inspect\_channel\_types.py}, the Colab pilot notebook).
 
-\subsection{Signal-Quality Findings}
+\subsection{Initial Signal-Quality Findings}
 \textbf{sub-001 boundary values.} In all 21 channels the minimum value reaches about $-10{,}239.69\,\mu$V (maximum
 absolute value 10{,}239.69\,$\mu$V). Between 332.5 and 333.5\,s each channel has many samples near this lower boundary,
 including consecutive runs of about 0.48--0.52\,s, and the same boundary was not observed in sub-002 in that interval.
 This is suspicious for clipping, saturation or a data-representation issue, but \textbf{the cause is not confirmed}
 (\texttt{reports/signal\_quality\_decisions.md}).
 
-\textbf{Amplitude screening.} Each trial window is flagged if its maximum channel peak-to-peak or absolute amplitude
+\textbf{Amplitude screening before correction.} Each trial window was flagged if its maximum channel peak-to-peak or absolute amplitude
 exceeds a heuristic threshold of 500\,$\mu$V.
 \begin{table}[H]\centering
 \caption{Heuristic amplitude flags per trial window (not validated rejection rules).}
@@ -208,107 +219,129 @@ genuine activity) is \textbf{still not established}. Note also that even the unf
 channel peak-to-peak range of roughly 250\,$\mu$V, which is large for EEG; we hypothesise that this reflects the
 absence of high-pass filtering, but this has not been tested.
 
-\textbf{Decision policy.} No trial or participant has been excluded, and raw files are never modified. Rejection or repair
-rules will be chosen only after this investigation and recorded in \texttt{signal\_quality\_decisions.md}. The
-\texttt{overlaps\_known\_suspicious\_interval} column currently reports no overlap with feature windows; this still has
-to be re-checked against actual onsets.
+\subsection{Signal Correction and Final Pilot Audit}
+The pilot notebook cropped each recording from 10\,s before the first delay
+to 10\,s after the last probe, within recording bounds. The suspicious
+sub-001 interval preceded this crop. Processing applied a 50\,Hz IIR notch,
+a 1--40\,Hz fourth-order Butterworth IIR band-pass, and resampling from
+500 to 100\,Hz. The linked-earlobe reference was retained.
+
+FastICA was fitted separately to the EEG channels of each participant using
+a 0.99 variance fraction, seed 42 and a maximum of 1{,}000 iterations.
+Component review used EOG association, scalp maps and time-course inspection.
+Component 0 was removed from each participant's own fit. For sub-002,
+component 1 was retained after review. Across the 120 delay windows per
+participant, the median absolute Fp2 correlation with vertical EOG went from
+0.896 to 0.059 for sub-001 and from 0.307 to 0.081 for sub-002.
+
+\begin{table}[H]\centering
+\caption{Final peak-to-peak screening of corrected delay windows. The amplitude
+columns summarize the maximum across EEG channels in each trial.}
+\begin{tabular}{lrrrr}
+\toprule
+Participant & Trials & Median ($\mu$V) & Highest ($\mu$V) & Trials $>500\,\mu$V \\
+\midrule
+sub-001 & 120 & 67.458 & 142.577 & 0 \\
+sub-002 & 120 & 66.930 & 249.077 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+No channel within a trial fell below the flatness threshold of
+0.1\,$\mu$V peak-to-peak. All 240 trials were retained. The results
+are recorded in \texttt{final\_pilot\_signal\_quality.csv}.
 
 \subsection{Tabular Cleaning of the Feature Table}
-Continuous EEG is not cleaned as if extreme samples were ordinary tabular outliers. For the derived trial-level feature
-table, \texttt{21\_clean\_tabular\_features.py} (i) reports and removes exact duplicate rows, (ii) imputes missing numeric
-values with the median and missing categories with ``Unknown'', (iii) flags IQR outliers ($1.5\times$IQR) without removing
-them, and (iv) applies standard scaling. Run on the 240-row feature table, it found 0 exact duplicate rows and 0
-missing values in all 60 numeric columns (57 band-power features, window duration and the two amplitude columns). The IQR
-rule flagged 363 of 14{,}400 numeric values (2.5\%) in 49 of the 60 columns; these were flagged, not removed. The most
-affected column is \texttt{T4\_beta\_power} (46 trials), followed by \texttt{C4\_alpha\_power} (19 trials). Among the
-categorical columns, \texttt{response\_accuracy} was missing for 2 trials (labelled ``Unknown'', consistent with the
-ambiguous response markers), and \texttt{quality\_issues} was empty for 232 rows, which means no issue was recorded for
-those trials (8 trials carry an issue). Full counts are in \texttt{reports/features\_cleaning\_log.csv}. The scaled table
-(\texttt{features\_scaled\_demo.csv}) is fitted on the whole file for demonstration only; evaluation will refit on
-training data only.
+The corrected feature audit found zero missing, infinite or negative band-power
+values, zero duplicate participant/trial keys and zero duplicate full rows.
+No imputation was needed. For each participant and feature, values outside
+the interval from $Q_1-1.5\,\mathrm{IQR}$ to $Q_3+1.5\,\mathrm{IQR}$ were flagged
+for review. At least one of 57 features was flagged in 56 trials for sub-001
+and 57 for sub-002. All flagged rows were retained. The 15 response-review
+flags were kept separately from the feature flags.
 
-%===========================================================
 \section{Phase 2: Feature Strategy}
 
 \subsection{Spectral Features}
-For each trial, the delay-to-probe window is extracted for the 19 EEG channels, and only that segment is read from disk
-(loading entire recordings caused a memory error). Power spectral density is estimated with Welch's method
-\cite{welch1967} using MNE-Python \cite{mne2013}, and band power is obtained by trapezoidal integration over theta
-(4--8\,Hz), alpha (8--13\,Hz) and beta (13--30\,Hz). This gives $19\times3=57$ features per trial, stored in
-\texttt{reports/eeg\_features.csv} (columns such as \texttt{Fp1\_theta\_power}) together with participant, trial,
-condition, timing, response accuracy, trial quality and amplitude-screening columns. Theta and alpha power are common
-markers of working-memory load, which motivates this first set. The features are \textbf{provisional}: they were extracted
-before filtering, referencing and artifact rules were finalized.
+We used the corrected delay-to-probe windows for all 19 EEG channels.
+Welch power spectral density \cite{welch1967} was computed with a Hann window,
+2\,s segments, 1\,s overlap, constant detrending and density scaling. Signals
+were expressed in microvolts before estimating the spectrum. Trapezoidal
+integration over theta (4--8\,Hz), alpha (8--13\,Hz) and beta (13--30\,Hz)
+included both frequency endpoints. Each trial produced $19\times3=57$
+band-power features in $\mu\mathrm{V}^2$. The table
+\texttt{eeg\_features\_cleaned\_signal.csv} also records trial timing, condition
+and signal-quality metadata.
 
-\subsection{Scaling, Normalization and Encoding}
-\begin{itemize}[leftmargin=*]
-  \item \textbf{Scaling.} Band power is right-skewed and depends on each participant's overall amplitude. The log$_{10}$
-  histograms in the band-power histograms in the EDA section are much more symmetric than raw power would be (theta still keeps a right tail), so the
-  proposed approach for the first experiments is a log$_{10}$ transform followed by train-only standardization. Relative band power
-  remains an option once filtering is settled. Whatever is adopted will be documented.
-  \item \textbf{Normalization.} Standardization is fitted on training data only and applied to validation/test data to
-  avoid leakage. In federated comparisons the scaling strategy (local per client or global) will be stated and kept
-  identical across baselines.
-  \item \textbf{Encoding.} Condition labels (5R--7M) are categorical and will be integer- or one-hot-encoded depending
-  on the final target definition (six classes, or load level $\times$ task type). Response labels and quality flags are
-  kept as separate columns.
-\end{itemize}
+\subsection{Scaling and Encoding}
+For the scaling demonstration, the 57 band-power columns were standardized
+with means and population standard deviations estimated from sub-001 and
+applied to both participants. There were no constant reference features.
+The median feature mean and standard deviation were 0 and 1 for sub-001
+and $-0.2907$ and 0.8794 for sub-002. The resulting table is
+\texttt{eeg\_features\_scaled\_demo.csv}. Future evaluations will fit scaling
+parameters within each training split.
 
-%===========================================================
+Conditions 5R, 6R, 7R, 5M, 6M and 7M map to nominal IDs 0 through 5,
+respectively. Set size (5, 6 or 7) and task type (R or M, encoded as 0 or 1)
+are also stored in \texttt{eeg\_features\_encoded.csv}. The input feature
+list contains only band powers. Trial identifiers, labels, response audit
+fields and quality flags are stored as separate columns.
+
 \section{Exploratory Data Analysis}
-The EDA is descriptive; with two participants no inferential claims are made.
+\subsection{Exploratory analysis of the two-participant pilot}
+Each participant contributed 20 trials to each of the six conditions,
+giving 40 trials per condition and 240 in total.
 
-\safefig{trial_counts_by_condition.png}{0.8}{Trial counts by condition and participant (20 trials per condition per participant).}
-\safefig{response_audit_status.png}{0.7}{Response/probe audit status by participant (structural review status, not behavioural accuracy).}
-Of the 240 probes, 225 passed the structural audit and 15 need review (8 in sub-001, 7 in sub-002 in the figure).
+\pilotfig{01_trial_balance.png}{0.80}
+{Trial counts by condition and participant.}
 
-\safefig{response_delay_distribution.png}{0.8}{Observed response-marker delays after probe onset.}
-Most response markers arrive between about 1 and 3\,s after the probe, with a long right tail; a few delays exceed 5\,s,
-which is what the five-second review heuristic targets.
+For each trial and frequency band, we summarized delay-period power
+using the median across 19 EEG channels. Sub-001 had higher median theta
+and beta power. Sub-002 had slightly higher median alpha power and a
+wider alpha interquartile range.
 
-\safefig{sub-001_representative_signals.png}{0.95}{Representative signal segments, sub-001.}
-\safefig{sub-002_representative_signals.png}{0.95}{Representative signal segments, sub-002.}
+\pilotfig{02_band_power_distributions.png}{0.98}
+{Distribution of trial-level median EEG channel power by band and participant.}
 
-\safefig{amplitude_by_participant.png}{0.6}{Maximum channel peak-to-peak amplitude per trial window by participant (log scale), with the 500\,$\mu$V screening heuristic.}
-The two participants barely overlap: sub-001 windows centre near 410\,$\mu$V with a few high outliers (about 530, 700 and
-1600\,$\mu$V), whereas every sub-002 window lies between about 2450 and 3000\,$\mu$V, far above the heuristic. This
-separation is larger than any variation between conditions, so amplitude differences between recordings must be understood
-before the features are pooled across participants.
+The Pearson heatmap showed groups of positive correlations within
+bands. Beta also contained groups of negative correlations between channels.
+Correlations between bands varied in sign. The analysis pools trials from
+both participants, so recording differences can contribute to these patterns.
 
-\safefig{band_power_distributions.png}{0.95}{Distribution of theta, alpha and beta band power (log$_{10}$) over all trials and channels.}
-Theta power is right-skewed with a long upper tail, alpha is close to symmetric, and beta shows a smaller secondary
-bump around $\log_{10}\approx1.6$--$1.8$. The cleaning log flags \texttt{T4\_beta\_power} for 46 trials, so a single
-channel may contribute to that bump, but this has not been checked.
+\pilotfig{03_feature_correlations.png}{0.74}
+{Pearson correlations among 57 unscaled band-power features across 240 pilot trials.}
 
-\safefig{band_power_by_condition.png}{0.8}{Mean log$_{10}$ band power by condition (both participants pooled).}
-Differences between conditions are small (means roughly 0.96--1.17 on the log scale) and show no clear ordering by set size
-or task type. Because the participants differ strongly in amplitude, this pooled view is only descriptive, and no
-condition effect should be read from it.
+\subsection{Response-marker review}
+\safefig{response_audit_status.png}{0.70}
+{Response-marker review status by participant.}
+Of 240 probes, 225 passed the structural audit and 15 required review
+(eight for sub-001 and seven for sub-002).
 
-\safefig{band_power_by_participant.png}{0.8}{Mean log$_{10}$ band power by participant (descriptive, two participants).}
-% TODO (team): add one sentence describing this figure after inspecting it.
-
-\safefig{feature_correlation_heatmap.png}{0.85}{Correlation between the 57 log$_{10}$ band-power features.}
-Features are ordered channel by channel (theta, alpha, beta), which produces the repeating three-column pattern. Features of
-the same band are often strongly positively correlated across channels, and some frontal theta and beta features appear
-negatively correlated, so the 57 features are far from independent. Dimensionality reduction or regularization should be
-considered at the modeling stage.
-
-%===========================================================
 \section{Limitations and Remaining Work}
 \begin{enumerate}[leftmargin=*]
-  \item Two participants only: no generalization or cross-subject conclusions.
-  \item Response-label mapping is provisional.
-  \item Amplitude thresholds are heuristic, and the sub-001 boundary anomaly and the sub-002 flags are unexplained.
-  \item Filtering, referencing and artifact handling are not finalized, so features may change; sub-002 windows are about six times larger in peak-to-peak range than sub-001 windows, and the cause is unknown.
-  \item Next: finish the quality decisions, validate labels, expand participants, then run baseline, centralized,
-  federated and personalized experiments with leakage-safe splits and suitable metrics (e.g.\ macro-F1).
+  \item Findings describe two pilot recordings. A larger participant sample
+  is needed to assess generalization.
+  \item Response accuracy remains provisional for ambiguous markers. The
+  condition labels used here come from the experimental task markers.
+  \item The cause of the pre-task sub-001 boundary values is unconfirmed.
+  Amplitude and flatness thresholds are screening heuristics.
+  \item The pilot ICA fits used each participant's full task crop. Future
+  evaluations must define the ICA fitting or calibration procedure relative
+  to the evaluation split, alongside training-only scaling.
+  \item Future work includes validating response labels, expanding the
+  participant sample, and evaluating centralized, federated and personalized
+  models.
 \end{enumerate}
 
 \section{Reproducibility}
-Code is in \texttt{data\_scripts/} of the GitHub repository
-(\url{https://github.com/EmanAdil122/federated-eeg-working-memory}); the README lists setup and execution order. Raw
-EEG is not committed.
+The repository contains the acquisition and audit scripts under
+\texttt{data\_scripts/}. The Colab notebook
+\texttt{notebooks/EEG\_Preprocessing\_Pipeline.ipynb} records the pilot signal
+correction, feature extraction, encoding, audit, scaling demonstration and
+EDA. Reviewed ICA solutions, corrected recordings and derived tables are
+saved to Drive checkpoints. Raw EEG stays outside the repository.
+Repository: \url{https://github.com/EmanAdil122/federated-eeg-working-memory}.
 
 \begin{thebibliography}{9}
 \bibitem{welch1967} P.~Welch, ``The use of fast Fourier transform for the estimation of power spectra,'' \emph{IEEE Trans.\ Audio Electroacoust.}, 15(2):70--73, 1967.
