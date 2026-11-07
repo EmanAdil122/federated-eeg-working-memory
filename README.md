@@ -1,9 +1,19 @@
 # Federated EEG Working Memory
 
 ## Project overview
-This repository investigates federated learning for EEG-based working-memory decoding, with attention to differences between participants and non-IID data. The current work is **Phase 1 (problem definition) and Phase 2 (data acquisition, validation, preprocessing design and exploratory analysis)**. Model training is a later phase.
+This repository investigates federated learning for EEG-based working-memory decoding, with attention to differences between participants and non-IID data. The current work is **Phase 1 (problem definition) and Phase 2 (data acquisition, validation, preprocessing, feature extraction and exploratory analysis)**. Model training is a later phase.
 
 The dataset currently contains only **two participants**, so this is a pilot. No claims about generalization to the wider population are made.
+
+## Deliverable 1
+
+- [Compiled report](paper/phase1_phase2_report.pdf) and [LaTeX source](paper/phase1_phase2_report.tex)
+- [Colab preprocessing notebook](notebooks/EEG_Preprocessing_Pipeline.ipynb)
+- [Pilot EDA figures](paper/figures/pilot_eda/)
+
+The pilot retained **240 trials**, with **40 trials per condition** across
+the two participants. The corrected feature table contains **57 band-power
+features per trial**. All **15 response-review flags** were preserved.
 
 ## Research questions
 1. How does a federated model compare with a centralized baseline for working-memory condition decoding?
@@ -11,11 +21,9 @@ The dataset currently contains only **two participants**, so this is a pilot. No
 3. Does a clearly defined personalization strategy improve cross-subject generalization?
 
 ## Team
-| Member | Role in this deliverable |
-|---|---|
-| Eman Adil | <!-- TODO --> |
-| Dua Sarfraz | <!-- TODO --> |
-| Ayza Ahmad | <!-- TODO --> |
+- Eman Adil
+- Dua Sarfraz
+- Ayza Ahmad
 
 Course: Artificial Intelligence
 
@@ -40,8 +48,8 @@ Local file-presence and size evidence is recorded in `reports/download_inventory
 .
 ├── data/              # local raw data; not committed
 ├── data_scripts/      # Phase 2 scripts (numbered in execution order)
-├── notebooks/         # exploratory notebook
-├── paper/             # LaTeX report (phase1_phase2_report.tex)
+├── notebooks/         # Colab preprocessing and pilot EDA
+├── paper/             # LaTeX report, PDF and pilot figures
 ├── reports/           # generated audit tables and notes
 │   └── figures/       # EDA figures
 ├── src/               # reserved for later phases (modeling, federated training)
@@ -57,8 +65,11 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-## Pipeline
-Run from the repository root.
+## Acquisition and diagnostic scripts
+
+Run these scripts from the repository root. The feature and EDA scripts
+below reproduce the initial diagnostics. For the corrected pilot results
+in the Deliverable 1 report, follow the Colab notebook workflow.
 
 | Stage | Scripts | Main outputs |
 |---|---|---|
@@ -72,25 +83,53 @@ Run from the repository root.
 
 Steps that read raw EEG (`02`, `11`-`18`, `22`-`25`) need the local `data/` folder. Steps `20`, `21` and `26` only need the CSVs in `reports/`.
 
+## Colab workflow for the corrected pilot
+
+1. Run the notebook setup and load the two recordings and event tables.
+2. Crop around the task, apply the 50 Hz notch and 1–40 Hz band-pass filters,
+   and resample to 100 Hz. Retain the original linked-earlobe reference.
+3. Fit and review ICA separately for each participant. Review candidate
+   components using EOG association, scalp maps and time courses.
+4. Audit the corrected delay windows, extract band powers, encode the
+   task conditions, validate the feature table, and run the scaling demo.
+5. Generate trial-balance, band-power distribution and correlation plots.
+
+The notebook saves reviewed ICA solutions, corrected recordings and
+derived feature tables in Drive checkpoints. The report figures are
+included under `paper/figures/pilot_eda/`.
+
 ## Features
-For each trial, the actual delay-to-probe window (about 6.7 s, taken from event onsets) is extracted for the 19 EEG channels. Welch power spectral density is integrated over theta (4-8 Hz), alpha (8-13 Hz) and beta (13-30 Hz), giving 19 x 3 = 57 features per trial. The table also stores trial metadata, response accuracy, trial quality and amplitude-screening columns. This is a first-pass feature set; filtering, referencing and artifact rules are not yet finalized.
+Each trial uses its actual delay-to-probe interval (about 6.7 s) and
+19 EEG channels. Welch power spectral density is integrated over theta
+(4–8 Hz), alpha (8–13 Hz) and beta (13–30 Hz), giving 57 band powers in
+µV². IDs, labels, response-review fields and quality flags are stored
+separately from the input feature list.
 
-## Data-centric cleaning and feature strategy
-- Raw files are preserved unchanged and kept out of Git.
-- Validation covers required files, sampling rate, channels, event timing, trial counts, missing stages and ambiguous response mappings.
-- Duplicate-looking response markers are not deleted, and missing EEG samples are not imputed.
-- Event audit: 240 probe/trial rows across two participants; the latest probe-based response audit marked 225 PASS and 15 REVIEW. This is a structural audit, not proof that every response is correctly attributed.
-- Amplitude screening (500 uV heuristic) flags 122 of 240 trial windows with both amplitude flags (all 120 trials of `sub-002`) and 6 with a peak-to-peak flag only. The thresholds are not validated rejection rules and no trial has been excluded.
-- A repeated boundary near -10,239.69 uV appears in all channels of `sub-001` around 332.5-333.5 s. The cause is not confirmed; do not clip, repair or exclude without investigation.
-- Tabular cleaning (`21_clean_tabular_features.py`): exact duplicates removed from the derived table, median imputation for missing numeric values, "Unknown" for missing categories, IQR outliers flagged but not removed, standard scaling. For evaluation, scaling must be fitted on training data only; the local-vs-global scaling choice in federated runs must be explicit and identical across comparisons.
-- Condition labels are encoded as categorical variables; response labels and quality flags are kept separate.
+## Data validation and preprocessing
 
-## Limitations / next steps
-1. Explain the `sub-001` boundary anomaly and the amplitude flags on every `sub-002` trial.
-2. Finalize and document filter, reference and artifact rules, then re-extract features.
-3. Validate response labels and define the prediction target.
-4. Expand the number of participants before any cross-subject conclusions.
-5. Baseline, centralized, federated and personalized experiments.
+- The probe audit marked 225 trials PASS and 15 REVIEW. These flags
+  describe the response markers. Condition labels come from the task events.
+- The suspicious boundary interval in `sub-001` preceded the task crop.
+  Its cause remains unconfirmed. After correction, none of the 240 delay
+  windows exceeded the 500 µV peak-to-peak review threshold.
+- The corrected feature audit found zero missing, infinite or negative
+  band powers and zero duplicate trial keys or complete rows.
+- Participant-wise IQR screening flagged at least one feature in 56 trials
+  for `sub-001` and 57 for `sub-002`. All 240 trials were retained.
+- Conditions `5R`, `6R`, `7R`, `5M`, `6M`, and `7M` map to nominal IDs
+  0–5, respectively. Set size and task type are also available separately.
+- The scaling demonstration fits means and standard deviations on
+  `sub-001` and applies the same parameters to both participants.
+
+## Limitations and next steps
+
+1. Validate ambiguous response labels and choose the prediction target.
+2. Expand the participant sample before drawing cross-subject conclusions.
+3. Define how ICA will be fitted or calibrated for evaluation. The pilot
+   fits used each participant's full task crop. Fit scaling parameters
+   within each training split.
+4. Evaluate centralized, federated and personalized models with a
+   documented split and comparison protocol.
 
 ## Report
 ```powershell
@@ -98,7 +137,9 @@ cd paper
 pdflatex phase1_phase2_report.tex
 pdflatex phase1_phase2_report.tex
 ```
-Figures are read from `../reports/figures/`.
+From `paper/`, the report reads the pilot EDA figures from
+`figures/pilot_eda/` and the response audit figure from
+`../reports/figures/`.
 
 ## Acknowledgements
 Data: OpenNeuro `ds003655`; cite it according to its OpenNeuro page.
