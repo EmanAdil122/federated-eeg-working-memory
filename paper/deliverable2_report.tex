@@ -1,0 +1,553 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{xurl}
+\usepackage{array}
+\emergencystretch=3em
+
+% Figure if the file exists, otherwise a visible placeholder box.
+\newcommand{\safefig}[3]{%
+  \begin{figure}[H]\centering
+  \IfFileExists{../reports/figures/#1}{\includegraphics[width=#2\linewidth]{../reports/figures/#1}}{%
+    \fbox{\parbox{0.8\linewidth}{\centering\vspace{1.2cm}\detokenize{#1} not found: run the EDA scripts first.\vspace{1.2cm}}}}%
+  \caption{#3}\end{figure}}
+
+% Run LaTeX from paper/. Pilot PNGs belong in figures/pilot_eda/.
+\newcommand{\pilotfig}[3]{%
+  \begin{figure}[H]\centering
+  \IfFileExists{figures/pilot_eda/#1}{%
+    \includegraphics[width=#2\linewidth]{figures/pilot_eda/#1}%
+  }{%
+    \fbox{\parbox{0.8\linewidth}{\centering\vspace{0.8cm}%
+    Missing pilot figure: \texttt{\detokenize{#1}}\vspace{0.8cm}}}%
+  }%
+  \caption{#3}\end{figure}}
+
+\newcommand{\modelingfig}[3]{%
+  \begin{figure}[H]\centering
+  \includegraphics[width=#2\linewidth]{figures/modeling/#1}%
+  \caption{#3}
+  \end{figure}}
+
+\title{Federated Learning for EEG-Based Working-Memory Decoding\\
+\large Model Architecture and Empirical Evaluation (Deliverable 2)}
+\author{Eman Adil \and Dua Sarfraz \and Ayza Ahmad\\[3pt] {Artificial Intelligence}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We investigate EEG-based working-memory load decoding with centralized,
+federated and personalized learning on OpenNeuro \texttt{ds003655}.
+A two-participant preprocessing pilot was expanded to 24 participants.
+The primary dataset comprised 2,878 trials and 57 delay-period band-power
+features per trial. Three neural-network training strategies were
+evaluated on 359 matched trials from four held-out participants.
+Centralized, FedAvg and personalized FedAvg macro-F1 scores were 0.3036,
+0.3276 and 0.3397, respectively. All three ROC-AUC scores were near 0.50,
+indicating limited discrimination on this split.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+%===========================================================
+\section{Phase 1: Problem Definition}
+
+\subsection{Problem Statement}
+Working memory is the short-term maintenance and manipulation of information, and it is central to reasoning and
+learning. EEG measures brain activity non-invasively and cheaply, so decoding working-memory demand from EEG is of
+interest for cognitive-state monitoring and brain--computer interfaces. Two practical obstacles limit this:
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Inter-subject variability.} EEG differs strongly between people (anatomy, electrode contact, noise,
+  individual rhythm frequencies), so a model trained on some people often degrades on others, and data from many
+  participants is needed.
+  \item \textbf{Privacy and data silos.} EEG is sensitive personal data. Pooling recordings from different labs or
+  clinics is often restricted by consent and regulation.
+\end{enumerate}
+Federated learning trains a shared model by exchanging model updates instead of raw recordings, which addresses the
+second obstacle. However, each participant's data is distributed differently (non-IID), which is exactly the first
+obstacle and is known to make federated optimisation harder \cite{mcmahan2017}. This project studies that
+interaction for EEG working-memory decoding.
+
+\subsection{Research Questions}
+\begin{enumerate}[leftmargin=*]
+  \item How does a federated model compare with a centralized baseline for working-memory condition decoding?
+  \item How sensitive are results to participant-level distribution differences?
+  \item Does a clearly defined personalization strategy improve cross-subject generalization?
+\end{enumerate}
+These are planned experiments, not results at this stage.
+
+\subsection{Target Audience and Research Gap}
+This is an original research (R\&D) project. The intended audience is researchers in neuro-engineering,
+brain--computer interfaces and privacy-preserving machine learning. The gap is a reproducible, small-scale comparison
+of centralized, federated and personalized learning for EEG working-memory decoding under non-IID, cross-subject
+conditions, in which data quality and label validity are examined rather than assumed.
+
+\textbf{Scope.} The initial pilot uses two participants. The later modeling experiment expands to 24 participants.
+
+\subsection{Justification for Machine Learning}
+A rule-based program would need hand-written rules from EEG measurements to working-memory demand. This is unsuitable
+because:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{High-dimensional, weak, distributed signal.} Each trial is a 19-channel time series at 500\,Hz;
+  memory-load effects appear as subtle spectral changes spread over channels, with no single threshold separating
+  conditions.
+  \item \textbf{Subject-specific patterns.} The same state looks different across people, so fixed rules do not transfer,
+  whereas learned models can adapt to these differences.
+  \item \textbf{Low signal-to-noise ratio.} Artifacts (eye movement, muscle activity, amplifier saturation; see
+  Section~\ref{sec:quality}) require statistical models that weigh evidence over many features.
+  \item \textbf{The research question itself is about learning.} Federated optimisation and personalization are
+  properties of learning algorithms and have no rule-based counterpart.
+\end{itemize}
+
+%===========================================================
+\section{Phase 2: Data Acquisition}
+
+\subsection{Dataset and Collection}
+The data are from OpenNeuro dataset \texttt{ds003655}, task \texttt{VerbalWorkingMemory}
+(\url{https://openneuro.org/datasets/ds003655}), a modified Sternberg task with retention (R) and manipulation (M)
+conditions at set sizes 5, 6 and 7, giving the conditions 5R, 6R, 7R, 5M, 6M and 7M. Two participants,
+\texttt{sub-001} and \texttt{sub-002}, were downloaded from the public repository. The local inventory
+(\texttt{reports/download\_inventory.csv}, produced by \texttt{01\_check\_downloads.py}) records eight files per
+participant and about 269.05\,MB in total. Raw files are excluded from Git through \texttt{.gitignore}. No download
+API log was captured.
+
+\begin{table}[H]\centering
+\caption{Recording metadata.}
+\begin{tabular}{lcc}
+\toprule
+Property & sub-001 & sub-002 \\
+\midrule
+Sampling rate & 500 Hz & 500 Hz \\
+Channels recorded & 21 & 21 \\
+EEG channels & 19 & 19 \\
+EOG channels & EOGv, EOGh & EOGv, EOGh \\
+Duration & 3077 s & 3035 s \\
+\bottomrule
+\end{tabular}
+\end{table}
+The EEG channels are Fp1, Fp2, F7, F3, Fz, F4, F8, T3, C3, Cz, C4, T4, T5, P3, Pz, P4, T6, O1, O2.
+
+\subsection{Trial Structure}
+\texttt{04\_build\_trial\_table.py} builds \texttt{reports/trial\_table.csv} from the event markers: 240 trials
+(120 per participant), 20 per condition per participant. Each row holds the onsets of the baseline, encoding, delay
+and probe phases, the response information and quality flags. The delay-to-probe interval is about 6.7\,s, but all
+scripts use the actual event onsets.
+
+%===========================================================
+\section{Phase 2: Validation and Data-Centric Cleaning}
+\label{sec:quality}
+
+\subsection{File and Event Validation}
+Both recordings loaded correctly, with 120 trial starts and 20 baseline, encoding, delay and probe markers per
+condition. The event tables had no exact duplicate rows and no onsets outside the recording. These checks confirm
+structure, not scientific validity.
+
+\subsection{Response-Label Uncertainty}
+There are 244 response markers for 240 probes; some are late, duplicated or ambiguous. The trial table flags eight trials
+for response ambiguity (6 in sub-001, 2 in sub-002), and the later probe-based audit marks 225 of 240 rows as PASS and 15
+as REVIEW; the two counts come from different checks and are to be reconciled. Late responses are judged with a five-second heuristic that is not a
+validated rule. Uncertain cases are kept, not silently resolved, and the event-to-label mapping is provisional; no
+supervised model will be trained before the labels are validated.
+
+\subsection{Channel-Type Correction}
+MNE initially labelled \texttt{EOGv} and \texttt{EOGh} as EEG. They are now set to type \texttt{eog} before channel selection,
+so features use only the 19 EEG channels (\texttt{12\_inspect\_channel\_types.py}, the Colab pilot notebook).
+
+\subsection{Initial Signal-Quality Findings}
+\textbf{sub-001 boundary values.} In all 21 channels the minimum value reaches about $-10{,}239.69\,\mu$V (maximum
+absolute value 10{,}239.69\,$\mu$V). Between 332.5 and 333.5\,s each channel has many samples near this lower boundary,
+including consecutive runs of about 0.48--0.52\,s, and the same boundary was not observed in sub-002 in that interval.
+This is suspicious for clipping, saturation or a data-representation issue, but \textbf{the cause is not confirmed}
+(\texttt{reports/signal\_quality\_decisions.md}).
+
+\textbf{Amplitude screening before correction.} Each trial window was flagged if its maximum channel peak-to-peak or absolute amplitude
+exceeds a heuristic threshold of 500\,$\mu$V.
+\begin{table}[H]\centering
+\caption{Heuristic amplitude flags per trial window (not validated rejection rules).}
+\begin{tabular}{lccc}
+\toprule
+Participant & No flag & Peak-to-peak only & Both flags \\
+\midrule
+sub-001 & 112 & 6 & 2 \\
+sub-002 & 0 & 0 & 120 \\
+\midrule
+Total & 112 & 6 & 122 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[H]\centering
+\caption{Window amplitude by flag group ($\mu$V).}
+\begin{tabular}{lccc}
+\toprule
+Group & Median p--p & Mean p--p & Median abs.\ amp. \\
+\midrule
+No flag & 406.66 & 411.35 & 258.31 \\
+Peak-to-peak only & 524.28 & 550.06 & 371.22 \\
+Both flags & 2550.53 & 2588.39 & 1325.66 \\
+\bottomrule
+\end{tabular}
+\end{table}
+Every sub-002 trial is flagged, which does not by itself mean every trial should be discarded. Whole-record
+channel ranges in sub-002 are large but vary by channel (e.g.\ Pz 5461.00, T3 5318.31, O1 5506.38\,$\mu$V), and the EOG
+channels also have large extrema. To tell a single bad channel from a participant-wide difference, the per-channel,
+per-trial audit (\texttt{24\_inspect\_trial\_channel\_amplitudes.py}, output
+\texttt{reports/trial\_channel\_amplitude\_audit.csv}) was computed for every delay-to-probe window
+(Table~\ref{tab:chanaudit}).
+\begin{table}[H]\centering
+\caption{Per-trial channel amplitude audit by participant (120 windows each; $\mu$V).}\label{tab:chanaudit}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5.4cm}>{\raggedright\arraybackslash}p{4.1cm}>{\raggedright\arraybackslash}p{4.1cm}}
+\toprule
+Quantity & sub-001 & sub-002 \\
+\midrule
+Max channel peak-to-peak, median (range) & 410.8 (317.4--1612.2) & 2551.4 (2444.9--2989.5) \\
+Max absolute amplitude, median & 260.5 & 1325.7 \\
+Median-over-channels peak-to-peak, mean & 256.5 & 613.0 \\
+Channels above 500\,$\mu$V p--p per window, mean (range) & 0.24 (0--19) & 13.2 (12--19) \\
+Channel with the largest p--p & Fp2 50, T3 45, O2 24, F8 1 trials & T3 in all 120 trials \\
+\bottomrule
+\end{tabular}
+\end{table}
+Two observations follow. First, the sub-002 difference is not confined to one channel: the typical channel is itself
+about 2.4 times larger than in sub-001, and 12 or more of the 19 EEG channels exceed 500\,$\mu$V in every window. Second,
+T3 has the largest range in every sub-002 window, so a channel-specific problem may be superimposed on the general
+difference. In sub-001 the flags are rare and concentrated in a few windows (the maximum of 19 channels over threshold
+belongs to a single window). The cause of the sub-002 pattern (recording or reference differences, scaling, drift, or
+genuine activity) is \textbf{still not established}. Note also that even the unflagged sub-001 windows have a median
+channel peak-to-peak range of roughly 250\,$\mu$V, which is large for EEG; we hypothesise that this reflects the
+absence of high-pass filtering, but this has not been tested.
+
+\subsection{Signal Correction and Final Pilot Audit}
+The pilot notebook cropped each recording from 10\,s before the first delay
+to 10\,s after the last probe, within recording bounds. The suspicious
+sub-001 interval preceded this crop. Processing applied a 50\,Hz IIR notch,
+a 1--40\,Hz fourth-order Butterworth IIR band-pass, and resampling from
+500 to 100\,Hz. The linked-earlobe reference was retained.
+
+FastICA was fitted separately to the EEG channels of each participant using
+a 0.99 variance fraction, seed 42 and a maximum of 1{,}000 iterations.
+Component review used EOG association, scalp maps and time-course inspection.
+Component 0 was removed from each participant's own fit. For sub-002,
+component 1 was retained after review. Across the 120 delay windows per
+participant, the median absolute Fp2 correlation with vertical EOG went from
+0.896 to 0.059 for sub-001 and from 0.307 to 0.081 for sub-002.
+
+\begin{table}[H]\centering
+\caption{Final peak-to-peak screening of corrected delay windows. The amplitude
+columns summarize the maximum across EEG channels in each trial.}
+\begin{tabular}{lrrrr}
+\toprule
+Participant & Trials & Median ($\mu$V) & Highest ($\mu$V) & Trials $>500\,\mu$V \\
+\midrule
+sub-001 & 120 & 67.458 & 142.577 & 0 \\
+sub-002 & 120 & 66.930 & 249.077 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+No channel within a trial fell below the flatness threshold of
+0.1\,$\mu$V peak-to-peak. All 240 trials were retained. The results
+are recorded in \texttt{final\_pilot\_signal\_quality.csv}.
+
+\subsection{Tabular Cleaning of the Feature Table}
+The corrected feature audit found zero missing, infinite or negative band-power
+values, zero duplicate participant/trial keys and zero duplicate full rows.
+No imputation was needed. For each participant and feature, values outside
+the interval from $Q_1-1.5\,\mathrm{IQR}$ to $Q_3+1.5\,\mathrm{IQR}$ were flagged
+for review. At least one of 57 features was flagged in 56 trials for sub-001
+and 57 for sub-002. All flagged rows were retained. The 15 response-review
+flags were kept separately from the feature flags.
+
+\section{Phase 2: Feature Strategy}
+
+\subsection{Spectral Features}
+We used the corrected delay-to-probe windows for all 19 EEG channels.
+Welch power spectral density \cite{welch1967} was computed with a Hann window,
+2\,s segments, 1\,s overlap, constant detrending and density scaling. Signals
+were expressed in microvolts before estimating the spectrum. Trapezoidal
+integration over theta (4--8\,Hz), alpha (8--13\,Hz) and beta (13--30\,Hz)
+included both frequency endpoints. Each trial produced $19\times3=57$
+band-power features in $\mu\mathrm{V}^2$. The table
+\texttt{eeg\_features\_cleaned\_signal.csv} also records trial timing, condition
+and signal-quality metadata.
+
+\subsection{Scaling and Encoding}
+For the scaling demonstration, the 57 band-power columns were standardized
+with means and population standard deviations estimated from sub-001 and
+applied to both participants. There were no constant reference features.
+The median feature mean and standard deviation were 0 and 1 for sub-001
+and $-0.2907$ and 0.8794 for sub-002. The resulting table is
+\texttt{eeg\_features\_scaled\_demo.csv}. Future evaluations will fit scaling
+parameters within each training split.
+
+Conditions 5R, 6R, 7R, 5M, 6M and 7M map to nominal IDs 0 through 5,
+respectively. Set size (5, 6 or 7) and task type (R or M, encoded as 0 or 1)
+are also stored in \texttt{eeg\_features\_encoded.csv}. The input feature
+list contains only band powers. Trial identifiers, labels, response audit
+fields and quality flags are stored as separate columns.
+
+\section{Exploratory Data Analysis}
+\subsection{Exploratory analysis of the two-participant pilot}
+Each participant contributed 20 trials to each of the six conditions,
+giving 40 trials per condition and 240 in total.
+
+\pilotfig{01_trial_balance.png}{0.80}
+{Trial counts by condition and participant.}
+
+For each trial and frequency band, we summarized delay-period power
+using the median across 19 EEG channels. Sub-001 had higher median theta
+and beta power. Sub-002 had slightly higher median alpha power and a
+wider alpha interquartile range.
+
+\pilotfig{02_band_power_distributions.png}{0.98}
+{Distribution of trial-level median EEG channel power by band and participant.}
+
+The Pearson heatmap showed groups of positive correlations within
+bands. Beta also contained groups of negative correlations between channels.
+Correlations between bands varied in sign. The analysis pools trials from
+both participants, so recording differences can contribute to these patterns.
+
+\pilotfig{03_feature_correlations.png}{0.74}
+{Pearson correlations among 57 unscaled band-power features across 240 pilot trials.}
+
+\subsection{Response-marker review}
+\safefig{response_audit_status.png}{0.70}
+{Response-marker review status by participant.}
+Of 240 probes, 225 passed the structural audit and 15 required review
+(eight for sub-001 and seven for sub-002).
+
+\section{Limitations of the Initial Pilot}
+\begin{enumerate}[leftmargin=*]
+  \item Findings describe two pilot recordings. The expanded cohort is described in Phase 3.
+  \item Response accuracy remains provisional for ambiguous markers. The
+  condition labels used here come from the experimental task markers.
+  \item The cause of the pre-task sub-001 boundary values is unconfirmed.
+  Amplitude and flatness thresholds are screening heuristics.
+  \item The pilot ICA fits used each participant's full task crop. Future
+  evaluations must define the ICA fitting or calibration procedure relative
+  to the evaluation split, alongside training-only scaling.
+  \item Response-label validation remains open. Phase 3 and Phase 4 describe
+  the expanded cohort and the model comparison.
+\end{enumerate}
+
+\section{Reproducibility}
+The repository contains the acquisition and audit scripts under
+\texttt{data\_scripts/}. The Colab notebook
+\texttt{notebooks/EEG\_Preprocessing\_Pipeline.ipynb} records the pilot signal
+correction, feature extraction, encoding, audit, scaling demonstration and
+EDA. Reviewed ICA solutions, corrected recordings and derived tables are
+saved to Drive checkpoints. Raw EEG stays outside the repository.
+Repository: \url{https://github.com/EmanAdil122/federated-eeg-working-memory}.
+
+\section{Phase 3: Model Architecture and Implementation}
+
+\subsection{Expanded cohort and prediction target}
+The two-participant pilot workflow was extended to 24 participants from
+OpenNeuro \texttt{ds003655}. The merged table contained 2,880 trials.
+Two trials with abrupt residual EEG amplitudes above the 500\,$\mu$V
+review threshold were excluded from the primary analysis
+(sub-014 trial 62 and sub-020 trial 53), leaving 2,878 trials.
+The classifier uses 57 delay-period EEG band-power features and predicts
+memory load (5, 6 or 7 letters) across retention (R) and manipulation (M).
+The target comes from task-condition markers. Response correctness and
+response-review status were excluded from the model inputs.
+
+\subsection{Shared classifier and training strategies}
+We implemented a multilayer perceptron in PyTorch with 57 inputs, hidden
+layers of 64 and 32 units with ReLU activations, dropout of 0.4 after the
+first hidden layer, and three output logits. Training used cross-entropy
+and Adam. The features were standardized using the means and standard
+deviations estimated from the 16 training participants and applied to
+validation and test features. All strategies used the same feature scale.
+
+\modelingfig{eeg_ann_architecture.png}{0.98}
+{Shared architecture and the three training strategies.}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Centralized ANN.} Pooled the training participants' features
+  and trained with mini-batches of 64 for 30 epochs. The checkpoint with
+  the best validation macro-F1 was selected.
+  \item \textbf{FedAvg ANN.} Simulated 16 participant clients in one runtime.
+  Each client started each round from the current global weights, trained
+  locally for one epoch, and contributed weights to the server average
+  in proportion to its trial count \cite{mcmahan2017}. All clients
+  participated in each of the 30 rounds. The architecture and optimizer
+  settings were carried over from centralized tuning.
+  \item \textbf{Personalized FedAvg ANN.} Initialized from the selected
+  global FedAvg checkpoint. For each evaluation participant, the output
+  layer was adapted with Adam using 30 labeled calibration trials, the
+  first five primary trials in each of the six conditions. The hidden
+  layers were frozen. Calibration used full-batch updates, a learning rate
+  of 0.001 and 10 epochs selected on validation participants.
+\end{itemize}
+
+\subsection{Hyperparameter selection}
+Table~\ref{tab:central-tuning} reports the best validation checkpoint for
+each centralized configuration. The batch size was held fixed at 64.
+Dropout of 0.4 was selected because it gave the highest validation
+macro-F1 (0.4010). The FedAvg checkpoint at round 8 reached 0.3014 macro-F1
+and 32.29\% validation accuracy on the full validation set.
+
+\begin{table}[H]
+\centering
+\caption{Centralized ANN tuning. Checkpoints were ranked by validation macro-F1.}
+\label{tab:central-tuning}
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Configuration & Hidden units & Dropout & Learning rate & Epoch & Accuracy & Macro-F1 \\
+\midrule
+Baseline & 64, 32 & 0.2 & 0.0010 & 10 & 0.3833 & 0.3829 \\
+Smaller network & 32, 16 & 0.2 & 0.0010 & 12 & 0.3833 & 0.3791 \\
+More dropout & 64, 32 & 0.4 & 0.0010 & 10 & 0.4042 & 0.4010 \\
+Lower learning rate & 64, 32 & 0.2 & 0.0005 & 11 & 0.3938 & 0.3796 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Personalization was tuned on held-out validation trials after calibration.
+Mean participant macro-F1 for 0, 1, 3, 5 and 10 adaptation epochs was
+0.2518, 0.2540, 0.2682, 0.2819 and 0.2986, respectively. These scores
+use a different validation subset and aggregation from the full-set
+FedAvg checkpoint score.
+
+\modelingfig{training_and_validation_curves.png}{0.98}
+{Centralized loss and validation accuracy by epoch, and FedAvg client training
+loss and validation accuracy by round. Dotted vertical lines mark checkpoints
+selected by validation macro-F1.}
+
+The centralized training loss decreased while validation loss increased
+in later epochs, consistent with overfitting on this split. FedAvg
+validation accuracy stayed near or below the uniform-guess reference
+for most rounds.
+
+\section{Phase 4: Training and Empirical Evaluation}
+
+\subsection{Participant split and test protocol}
+Participants were assigned to training (16), validation (4) and test (4)
+using seed 42. No participant was assigned to more than one split.
+Test participants were sub-002, sub-009, sub-014 and sub-022.
+Validation results determined model checkpoints and adaptation settings.
+Of the test participants' 479 primary trials, 120 were reserved for
+personalized calibration (30 per participant). The three models were
+scored on the same remaining 359 trials. Centralized and FedAvg weights
+were fixed for testing, while personalization used only the labeled
+calibration subset for the respective test participant. Calibration
+and evaluation trials came from the same recording session.
+
+Accuracy measures overall correctness. Macro precision, recall and F1
+give each load class equal weight. Macro one-versus-rest ROC-AUC
+summarizes how well predicted probabilities rank each class against the
+other two classes, independently of the final class decision.
+
+\subsection{Held-out results}
+\begin{table}[H]
+\centering
+\caption{Final test performance on 359 matched trials from four participants.}
+\label{tab:test-performance}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Model & Accuracy & Macro precision & Macro recall & Macro-F1 & Macro ROC-AUC \\
+\midrule
+Centralized ANN & 0.3036 & 0.3098 & 0.3035 & 0.3036 & 0.4752 \\
+FedAvg ANN & 0.3538 & 0.3573 & 0.3543 & 0.3276 & 0.4750 \\
+Personalized FedAvg ANN & 0.3538 & 0.3643 & 0.3541 & 0.3397 & 0.4797 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+FedAvg achieved higher accuracy and macro-F1 than the centralized model
+on this held-out split. Personalization kept accuracy at 35.38\% and
+raised macro-F1 from 0.3276 to 0.3397. Accuracy remained close to the
+33.33\% uniform-guess reference, and macro ROC-AUC ranged from 0.4750 to
+0.4797. These results provide limited evidence for reliable load decoding
+or consistent superiority on unseen participants.
+
+\subsection{Error Analysis}
+\modelingfig{test_confusion_matrices.png}{0.99}
+{Test confusion matrices. Rows are actual loads and columns are predicted loads.
+Each cell shows the count and percentage within the actual class.}
+
+The centralized model predicted load 6 on 156 of the 359 trials.
+FedAvg predicted load 5 on 183 trials. Load 7 was particularly difficult
+for both federated models. FedAvg correctly classified 15 of 120 load-7
+trials (12.5\% recall); personalization raised this to 21 of 120 (17.5\%).
+Personalization also improved load-6 recall from 37.5\% to 40.0\%, while
+load-5 recall dropped from 56.3\% to 48.7\%.
+
+\subsection{Bias Check}
+\begin{table}[H]
+\centering
+\caption{Descriptive test macro-F1 by participant and task.}
+\label{tab:bias-check}
+\begin{tabular}{lrrr}
+\toprule
+Group & Centralized & FedAvg & Personalized FedAvg \\
+\midrule
+sub-002 & 0.350 & 0.340 & 0.371 \\
+sub-009 & 0.242 & 0.303 & 0.317 \\
+sub-014 & 0.209 & 0.243 & 0.281 \\
+sub-022 & 0.241 & 0.270 & 0.290 \\
+\midrule
+Manipulation (M) & 0.273 & 0.316 & 0.292 \\
+Retention (R) & 0.325 & 0.330 & 0.383 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Personalization improved participant-level macro-F1 relative to FedAvg
+for each of the four test participants. The task-level comparison
+differed: retention improved from 0.330 to 0.383, while manipulation
+decreased from 0.316 to 0.292. These comparisons describe performance
+variation within the available split. Demographic fairness was not
+assessed in this experiment.
+
+\subsection{Limitations}
+The evaluation uses one split and only four test participants.
+ICA correction was fitted separately on each participant's full task
+recording before model splitting. This protocol assumes access to the
+full recording for preprocessing and does not establish prospective
+performance on an incoming trial stream. Personalization uses labeled
+trials from each test participant's session, so it measures adaptation
+to that session. FedAvg was a single-runtime simulation using a shared
+scaler estimated from training participants. It does not demonstrate
+a deployed privacy system.
+
+\section{Contribution Table}
+\begin{table}[H]
+\centering
+\caption{Contributions verified in repository history at the time of drafting.}
+\small
+\begin{tabular}{p{0.20\linewidth}p{0.23\linewidth}p{0.45\linewidth}}
+\toprule
+Member & Git author & Module and example commit \\
+\midrule
+Eman Adil & \texttt{EmanAdil122} &
+EEG acquisition, validation and feature extraction
+(\texttt{6134493}, \texttt{364382c}) \\
+Dua Sarfraz & \texttt{duasarfarz3114} &
+Feature EDA script and visualization fixes
+(\texttt{64e25ca}, \texttt{7dc6a6a}) \\
+Ayza Ahmad & \texttt{ayzaahmed27} &
+Batch EEG preprocessing and 24-participant quality review
+(\texttt{1ccc3f7}, \texttt{53df3a5}) \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Before submission, add each member's actual Phase 3/4 module and commit ID.
+
+\begin{thebibliography}{9}
+\bibitem{welch1967} P.~Welch, ``The use of fast Fourier transform for the estimation of power spectra,'' \emph{IEEE Trans.\ Audio Electroacoust.}, 15(2):70--73, 1967.
+\bibitem{mne2013} A.~Gramfort et al., ``MEG and EEG data analysis with MNE-Python,'' \emph{Front.\ Neurosci.}, 7:267, 2013.
+\bibitem{mcmahan2017} B.~McMahan et al., ``Communication-efficient learning of deep networks from decentralized data,'' \emph{AISTATS}, 2017.
+\end{thebibliography}
+\end{document}
