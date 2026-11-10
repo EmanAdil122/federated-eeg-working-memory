@@ -523,27 +523,38 @@ scaler estimated from training participants. It does not demonstrate
 a deployed privacy system.
 
 \section{Contribution Table}
+Table~\ref{tab:team-contributions} summarizes the work recorded on the
+repository's \texttt{main} branch. The EEG validation and exploratory
+analysis in Deliverable~1 provided the foundation for the modeling
+and evaluation in Deliverable~2.
+
 \begin{table}[H]
 \centering
-\caption{Contributions verified in repository history at the time of drafting.}
+\caption{Team contributions and representative Git commits.}
+\label{tab:team-contributions}
 \small
-\begin{tabular}{p{0.20\linewidth}p{0.23\linewidth}p{0.45\linewidth}}
+\begin{tabular}{@{}p{0.18\linewidth}p{0.22\linewidth}p{0.54\linewidth}@{}}
 \toprule
-Member & Git author & Module and example commit \\
+Member & Git author & Work and commit evidence \\
 \midrule
 Eman Adil & \texttt{EmanAdil122} &
-EEG acquisition, validation and feature extraction
-(\texttt{6134493}, \texttt{364382c}) \\
+EEG acquisition and initial validation (\texttt{6134493}); event and
+trial-quality audit scripts (\texttt{4b57ee1}); pilot feature extraction
+and signal-quality analysis (\texttt{364382c}). \\[3pt]
 Dua Sarfraz & \texttt{duasarfarz3114} &
-Feature EDA script and visualization fixes
-(\texttt{64e25ca}, \texttt{7dc6a6a}) \\
+Problem definition (\texttt{d3b0627}); band-power EDA script and plot
+refinements (\texttt{64e25ca}, \texttt{7dc6a6a}); tabular cleaning
+outputs (\texttt{a5af83f}); pilot report revisions (\texttt{e08571d}). \\[3pt]
 Ayza Ahmad & \texttt{ayzaahmed27} &
-Batch EEG preprocessing and 24-participant quality review
-(\texttt{1ccc3f7}, \texttt{53df3a5}) \\
+Batch EEG preprocessing and quality review for 24 participants
+(\texttt{53df3a5}); cohort EDA (\texttt{3304e5e}); modeling and
+evaluation notebook (\texttt{49fbb20}); runnable training, FedAvg,
+personalization and evaluation pipeline, with dependencies and run
+instructions (\texttt{2cd5f34}); Deliverable~2 report and evaluation
+figures (\texttt{bf650af}). \\
 \bottomrule
 \end{tabular}
 \end{table}
-% Before submission, add each member's actual Phase 3/4 module and commit ID.
 
 \begin{thebibliography}{9}
 \bibitem{welch1967} P.~Welch, ``The use of fast Fourier transform for the estimation of power spectra,'' \emph{IEEE Trans.\ Audio Electroacoust.}, 15(2):70--73, 1967.
