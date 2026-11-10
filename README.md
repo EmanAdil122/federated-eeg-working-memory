@@ -52,26 +52,35 @@ task type. Results are descriptive for four test participants.
 
 ### Reproduce the modeling run
 
-1. Obtain the feature table and schema from the team's Google Drive
-   folder. Ask a repository maintainer for access if needed.
-2. In your Drive, place the files in
-   `My Drive/EEG_Project/checkpoints/combined_features/`:
-   - `eeg_features_24_participants_qc_annotated.csv`
-   - `eeg_features_24_participants_schema.json`
-   The notebook creates `eeg_modeling_split_seed42.json` using seed 42.
-   For a different Drive layout, update the folder variable in the first cell.
-3. Open the modeling notebook in Colab. Run the setup and split, then
-   centralized baseline, centralized tuning, FedAvg, personalization,
-   final test evaluation, and error analysis in order. The final plotting
-   cells save the report figures. These cells use PyTorch, NumPy, pandas,
-   scikit-learn and Matplotlib.
-4. Results are saved under `modeling_results/` in the shared Drive layout.
-   The standalone model scripts and environment requirements should be
-   updated together when the team's script version is ready.
+Obtain these two input files from the team's shared Google Drive folder and
+put them together in a local directory, for example `data/combined_features/`:
+
+- `eeg_features_24_participants_qc_annotated.csv`
+- `eeg_features_24_participants_schema.json`
+
+From the repository root, using Python 3.10 or later, run:
+
+```powershell
+python -m pip install -r requirements.txt
+python -m src.run_modeling --data-dir data/combined_features --output-dir data/modeling_results --device cpu
+```
+
+Set `--data-dir` to the directory where you downloaded the two files.
+The command builds the seed-42 split, fits scaling on training participants,
+runs centralized tuning and FedAvg, selects personalization on validation
+participants, and evaluates all three models on matched held-out trials.
+It saves the split JSON, checkpoints, training histories, test predictions
+and metrics, subgroup tables, and report figures under `--output-dir`.
+The table above records the original notebook run. Re-runs can differ
+across hardware and library versions.
+
+The same workflow is available in the [Colab notebook](notebooks/EEG_Modeling.ipynb).
+For Colab, place the inputs in `My Drive/EEG_Project/checkpoints/combined_features/`
+or edit the folder variable in the setup cell.
 
 ### Model weights
 
-The Colab run saves `centralized_selected.pt` and `federated_selected.pt` in `modeling_results/`.
+The modeling workflow saves `centralized_selected.pt` and `federated_selected.pt` in `modeling_results/`.
 These checkpoints include the model parameters, feature order and scaling
 statistics. The personalized model is produced from the FedAvg checkpoint
 and each participant's calibration trials.

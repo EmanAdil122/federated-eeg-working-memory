@@ -4,3 +4,4 @@ matplotlib
 scikit-learn
 mne
 jupyter
+torch>=2.0,<3
