@@ -5,7 +5,7 @@ This project compares centralized, federated and personalized neural
 networks for EEG-based working-memory load prediction. Deliverable 1
 established the preprocessing workflow on two pilot participants.
 Deliverable 2 expands the cohort to 24 participants and evaluates the
-models on held-out participants.
+models on held-out participants. Deliverable 3 completes Track B with a dropout ablation, final comparison and sample-level failure analysis.
 
 ## Deliverable 1
 
@@ -87,8 +87,30 @@ and each participant's calibration trials.
 
 **Checkpoint downloads:**
 
-- [Centralized ANN weights](https://drive.google.com/file/d/1Iw1S1ulvC6ThpbhFYT8lDBbSQpAOqsxV/view?usp=sharing)
+- [Centralized ANN weights](https://drive.google.com/file/d/1TxVNMu7SEkvZ9fvhUEyAa5vcc3tPg_IZ/view?usp=sharing)
 - [FedAvg ANN weights](https://drive.google.com/file/d/1ceewAjjzVzAMFGVSp3Q2NN6JZ17HJFVN/view?usp=sharing)
+
+## Deliverable 3 — Final research output (Track B)
+
+- [Final report PDF](paper/deliverable3_report.pdf) and [LaTeX source](paper/deliverable3_report.tex)
+- [Executed modeling notebook](notebooks/EEG_Modeling.ipynb), including the appended Deliverable 3 cells
+- [Final model comparison](paper/figures/modeling/deliverable3_model_comparison.png)
+- [Sample prediction probabilities](paper/figures/modeling/deliverable3_sample_predictions.png)
+
+The centralized ANN provides the pooled-data baseline for FedAvg and personalized FedAvg. All three are evaluated on the same 359 trials. Personalized FedAvg has the highest macro-F1 (0.3397), with the same accuracy as FedAvg (0.3538). AUC remains close to 0.50. These descriptive results use one participant split and do not establish reliable cross-subject decoding.
+
+The centralized architecture ablation changes dropout from 0.4 to 0.0, retaining the other selected settings and selecting each checkpoint by validation macro-F1.
+
+| Dropout | Selected epoch | Validation macro-F1 | Test accuracy | Test macro-F1 | Test macro ROC-AUC |
+|---|---:|---:|---:|---:|---:|
+| 0.4 | 10 | 0.4010 | 0.3036 | 0.3036 | 0.4752 |
+| 0.0 | 2 | 0.3689 | 0.3259 | 0.3235 | 0.4884 |
+
+Dropout 0.4 remains the validation-selected reference. The test improvement without dropout is an exploratory result from one seed and split. The ablation evaluates centralized training only.
+
+To reproduce these additional results in Colab, run setup and modeling through final test evaluation, then the appended dropout ablation, sample prediction and comparison cells. Report-upload and LaTeX compilation cells are optional report utilities. The cells save `deliverable3_dropout_ablation.csv`, `deliverable3_sample_predictions.csv`, `deliverable3_sample_predictions.png` and `deliverable3_model_comparison.png` under `modeling_results/`. The CLI command below reproduces the original three-model workflow. The additional ablation runs through the notebook.
+
+Actual EEG results come from the executed Colab notebook. The standalone CLI was smoke-tested on synthetic 24-participant data. An independent actual-data CLI rerun has not been verified.
 
 ## Research questions
 1. How does a federated model compare with a centralized baseline for working-memory condition decoding?
@@ -124,7 +146,7 @@ Local file-presence and size evidence is recorded in `reports/download_inventory
 ├── data/              # local raw data; not committed
 ├── data_scripts/      # Phase 2 scripts (numbered in execution order)
 ├── notebooks/         # Colab preprocessing, modeling and evaluation
-├── paper/             # Deliverable 1 and 2 reports and figures
+├── paper/             # Deliverable 1, 2 and 3 reports and figures
 ├── reports/           # generated audit tables and notes
 │   └── figures/       # EDA figures
 ├── src/               # location for standalone project modules
@@ -219,6 +241,8 @@ pdflatex phase1_phase2_report.tex
 pdflatex phase1_phase2_report.tex
 pdflatex deliverable2_report.tex
 pdflatex deliverable2_report.tex
+pdflatex deliverable3_report.tex
+pdflatex deliverable3_report.tex
 ```
 
 Figure paths are relative to `paper/`. Deliverable 2 includes the pilot figures
