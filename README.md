@@ -249,4 +249,4 @@ Figure paths are relative to `paper/`. Deliverable 2 includes the pilot figures
 and the modeling figures under `figures/modeling/`.
 
 ## Acknowledgements
-Data: OpenNeuro `ds003655`; cite it according to its OpenNeuro page.
+Yuri G. Pavlov (2023). VerbalWorkingMemory. OpenNeuro. [Dataset] doi: doi:10.18112/openneuro.ds003655.v1.0.2
